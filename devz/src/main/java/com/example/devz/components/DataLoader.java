@@ -25,16 +25,17 @@ public class DataLoader implements ApplicationRunner {
         Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org");
         Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com");
         Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com");
+
         Skill java = new Skill("Java");
         Skill ruby = new Skill("Ruby");
         Skill javascript = new Skill("Javascript");
         Skill sql = new Skill("SQL");
         Skill spring = new Skill("Spring");
 
-        developerRepository.save(budgie);
-        developerRepository.save(ralph);
-        developerRepository.save(kenny);
-        developerRepository.save(malky);
+//        developerRepository.save(budgie);
+//        developerRepository.save(ralph);
+//        developerRepository.save(kenny);
+//        developerRepository.save(malky);
 
         skillRepository.save(java);
         skillRepository.save(javascript);
@@ -42,11 +43,30 @@ public class DataLoader implements ApplicationRunner {
         skillRepository.save(spring);
         skillRepository.save(sql);
 
-        sql.addDeveloper(budgie);
-        skillRepository.save(sql);
+        budgie.addSkill(sql);
+        developerRepository.save(budgie);
 
         budgie.addSkill(ruby);
         developerRepository.save(budgie);
+
+        ralph.addSkill(sql);
+        developerRepository.save(ralph);
+
+        ralph.addSkill(ruby);
+        developerRepository.save(ralph);
+
+        kenny.addSkill(sql);
+        developerRepository.save(kenny);
+
+        kenny.addSkill(ruby);
+        developerRepository.save(kenny);
+
+        malky.addSkill(sql);
+        developerRepository.save(malky);
+
+        malky.addSkill(ruby);
+        developerRepository.save(malky);
+
 
     }
 

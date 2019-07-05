@@ -1,5 +1,6 @@
 package com.example.devz.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class Developer {
 
     @JsonIgnore
     @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
             name = "developers_skills",
             joinColumns = { @JoinColumn(
