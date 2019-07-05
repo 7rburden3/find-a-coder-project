@@ -44,7 +44,7 @@ public class DataLoader implements ApplicationRunner {
 
         sql.addDeveloper(budgie);
         skillRepository.save(sql);
-        
+
         budgie.addSkill(ruby);
         developerRepository.save(budgie);
 
