@@ -4,6 +4,8 @@ package com.example.devz.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "skills")
@@ -21,14 +23,30 @@ public class Skill {
 //    @JoinColumn(name = "developer_id", nullable = false)
 //    private Developer developer;
 
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "developers_skills",
+            joinColumns = { @JoinColumn(
+                    name = "skill_id",
+                    nullable = false,
+                    updatable = false)
+            },
+            inverseJoinColumns = { @JoinColumn(
+                    name = "developer_id",
+                    nullable = false,
+                    updatable = false)
+            })
+    private List<Developer> developers;
+
     public Skill() {
 
     }
 
 
-    public Skill(String skill, Developer developer) {
+    public Skill(String skill) {
         this.skill = skill;
-//        this.developer = developer;
+        this.developers = new ArrayList<>();
     }
 
     public Long getId() {
@@ -45,5 +63,17 @@ public class Skill {
 
     public void setSkill(String skill) {
         this.skill = skill;
+    }
+
+    public List<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(List<Developer> developers) {
+        this.developers = developers;
+    }
+
+    public void addDeveloper(Developer developer){
+        this.developers.add(developer);
     }
 }

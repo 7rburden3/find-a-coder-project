@@ -25,11 +25,11 @@ public class DataLoader implements ApplicationRunner {
         Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org");
         Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com");
         Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com");
-        Skill java = new Skill("Java", budgie);
-        Skill ruby = new Skill("Ruby", budgie);
-        Skill javascript = new Skill("Javascript", budgie);
-        Skill sql = new Skill("SQL", kenny);
-        Skill spring = new Skill("Spring", ralph);
+        Skill java = new Skill("Java");
+        Skill ruby = new Skill("Ruby");
+        Skill javascript = new Skill("Javascript");
+        Skill sql = new Skill("SQL");
+        Skill spring = new Skill("Spring");
 
         developerRepository.save(budgie);
         developerRepository.save(ralph);
@@ -41,6 +41,13 @@ public class DataLoader implements ApplicationRunner {
         skillRepository.save(ruby);
         skillRepository.save(spring);
         skillRepository.save(sql);
+
+        sql.addDeveloper(budgie);
+        skillRepository.save(sql);
+        
+        budgie.addSkill(ruby);
+        developerRepository.save(budgie);
+
     }
 
 }
