@@ -1,4 +1,6 @@
 E30 Group Project Brief
+first draft Friday 5 July 2019 12:00
+
 
 DEVZ
 Find a software developer for your company or project
