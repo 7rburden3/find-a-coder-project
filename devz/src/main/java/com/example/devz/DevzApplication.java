@@ -10,4 +10,6 @@ public class DevzApplication {
 		SpringApplication.run(DevzApplication.class, args);
 	}
 
+
+
 }
