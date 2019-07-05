@@ -16,10 +16,10 @@ public class Skill {
     @Column(name = "skill")
     private String skill;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "developer_id", nullable = false)
-    private Developer developer;
+//    @JsonIgnore
+//    @ManyToOne
+//    @JoinColumn(name = "developer_id", nullable = false)
+//    private Developer developer;
 
     public Skill() {
 
@@ -28,7 +28,7 @@ public class Skill {
 
     public Skill(String skill, Developer developer) {
         this.skill = skill;
-        this.developer = developer;
+//        this.developer = developer;
     }
 
     public Long getId() {

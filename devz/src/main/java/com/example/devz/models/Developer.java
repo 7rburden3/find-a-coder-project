@@ -25,8 +25,8 @@ public class Developer {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "id", fetch=FetchType.LAZY)
-    private List<Skill> skills;
+//    @OneToMany(mappedBy = "id", fetch=FetchType.LAZY)
+//    private List<Skill> skills;
 
 
 
