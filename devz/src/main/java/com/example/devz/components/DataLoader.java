@@ -72,6 +72,7 @@ public class DataLoader implements ApplicationRunner {
         kenny.addSkill(ruby);
         developerRepository.save(kenny);
 
+        
         malky.addSkill(sql);
         developerRepository.save(malky);
 
