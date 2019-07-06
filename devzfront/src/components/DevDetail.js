@@ -8,9 +8,9 @@ class DevDetail extends Component{
         <Fragment>
         <div className="col-xl-3 col-md-6 mb-4">
           <div className="card border-0 shadow">
-            <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" className="card-img-top" alt="..."/>
+            <img src={this.props.avatar} className="card-img-top" alt="..."/>
               <div className="card-body text-center">
-                <h5 className="card-title mb-0">Team Member</h5>
+                <h5 className="card-title mb-0">{this.props.name}</h5>
                 <div className="card-text text-black-50">Web Developer</div>
               </div>
 		  	  </div>

@@ -5,13 +5,15 @@ class DevzList extends Component {
     render() {
         const devNodes = this.props.data.map(developer => {
             return (
-                <DevDetail avatar={developer} key={developer.id} name={developer.name}></DevDetail>
+                <DevDetail avatar={developer.url} key={developer.id} name={developer.name}></DevDetail>
             );
         });
 
         return (
-            <div className="comment-list">
-                {devNodes}
+            <div class="container">
+                <div class="row">
+                    {devNodes}
+                </div>
             </div>
         )
     }
