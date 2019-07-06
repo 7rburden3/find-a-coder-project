@@ -6,7 +6,7 @@ class SkillSearch extends React.Component{
     this.state = {
       searchSkill: "",
       suggestions: [],
-      text = " "
+      text: ""
     };
     this.items = [
       "Ruby",
@@ -30,13 +30,20 @@ class SkillSearch extends React.Component{
     if(value.length > 0){
       const regex = new RegExp(`^${value}`, 'i');
       suggestions = this.items.sort().filter(v => regex.test(v));
-      this.setState({ suggestions: suggestions })
+      
       console.log(suggestions)
     }
+    this.setState({ suggestions: suggestions, text: value })
     
     console.log(this.state.suggestions)
   } 
-  
+
+  suggestionSelected(value) {
+    this.setState(() => ({
+      text: value,
+      suggestions: []
+    }))
+  }
 
   renderSuggestions(){
     const { suggestions} = this.state
@@ -45,14 +52,12 @@ class SkillSearch extends React.Component{
     }
     return (
       <ul>
-        {suggestions.map((item)=> onClick=<li>{item}</li>)}
+        {suggestions.map((item)=> <li onClick={()=> this.suggestionSelected(item)}>{item}</li>)}
       </ul>
     )
   }
 
-  suggestionSelected(value){
-    this.setState
-  }
+  
 
 
 
@@ -68,7 +73,7 @@ class SkillSearch extends React.Component{
 
 
     return(
-      <div className="active-cyan-3 active-cyan-4 mb-4 col-md-6">
+      <div className="searchkill active-cyan-3 active-cyan-4 mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>
           <input 
             className ="form-control-lg" 
@@ -77,12 +82,12 @@ class SkillSearch extends React.Component{
             aria-label="Search"
             name = "searchSkill"
             onChange={this.handleChange}
-            value = {this.state.searchSkill}
+            value = {this.state.text}
             />
-            <ul> 
-             {this.renderSuggestions()}
-            </ul>
         </form>
+        <ul>
+          {this.renderSuggestions()}
+        </ul>
 			</div>
     )
   }
