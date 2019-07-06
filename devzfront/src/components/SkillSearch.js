@@ -6,7 +6,7 @@ class SkillSearch extends Component{
 
     return(
       <div className="active-cyan-3 active-cyan-4 mb-4 col-md-6">
-        <input class="form-control-lg" type="text" placeholder="Skills" aria-label="Search"/>
+        <input className ="form-control-lg" type="text" placeholder="Skills" aria-label="Search"/>
 			</div>
     )
   }
