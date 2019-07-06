@@ -2,6 +2,7 @@ package com.example.devz.models;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,12 +19,26 @@ public class Project {
     @Column(name = "projectName")
     private String projectName;
 
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "project")
+//    private List<Developer> developers;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "project")
-//    @JoinColumn(name = "developer_id")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "developers_projects",
+            joinColumns = { @JoinColumn(
+                    name= "project_id",
+                    nullable = false,
+                    updatable = false)
+            },
+            inverseJoinColumns = { @JoinColumn(
+                    name = "developer_id",
+                    nullable = false,
+                    updatable = false)
+            })
     private List<Developer> developers;
-
-
 
     public Project() {
 

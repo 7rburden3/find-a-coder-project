@@ -50,24 +50,35 @@ public class Developer {
             })
     private List<Skill> skills;
 
-    @JsonIgnoreProperties("projects")
-    @ManyToOne
-    @JoinColumn(name="project_id", nullable = false)
-    private Project project;
-
+    @JsonIgnore
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "developers_projects",
+            joinColumns = { @JoinColumn(
+                    name= "developer_id",
+                    nullable = false,
+                    updatable = false)
+            },
+            inverseJoinColumns = { @JoinColumn(
+                    name = "project_id",
+                    nullable = false,
+                    updatable = false)
+            })
+    private List<Project> projects;
 
     public Developer() {
 
     }
 
-    public Developer(String firstName, String lastName, String location, String github, String email, Project project) {
+    public Developer(String firstName, String lastName, String location, String github, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
         this.github = github;
         this.email = email;
         this.skills = new ArrayList<>();
-        this.project = project;
+        this.projects = new ArrayList<>();
     }
 
 
@@ -131,11 +142,15 @@ public class Developer {
         this.skills.add(skill);
     }
 
-    public Project getProject() {
-        return project;
+    public List<Project> getProjects() {
+        return projects;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public void addProject(Project project) {
+        this.projects.add(project);
     }
 }
