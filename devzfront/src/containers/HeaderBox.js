@@ -8,17 +8,9 @@ class HeaderBox extends Component{
 
     return(
       <Fragment>
-        <header className="masthead text-center py-5 mb-4">
-          <div className="container">
-            <h1 className="font-weight-light text-white">Find a Developer</h1>
-            <div className="row">
-              <SkillSearch />
-              <LocationSearch />
-              </div>
-          </div>
-      </header>
-      
-      
+      <h2>Header Box</h2>
+      <SkillSearch />
+      <LocationSearch/>
       </Fragment>
     )
   }
