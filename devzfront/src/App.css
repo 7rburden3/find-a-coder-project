@@ -31,3 +31,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* Non-react css  */
+
+body {
+  background: #EDE7D4;
+  /* background: linear-gradient(to right, rgb(255, 251, 213), #EDE7D4); */
+}
+
+.masthead {
+  padding-top: calc(6rem + 74px);
+  padding-bottom: 6rem;
+  background-color: #6A8CAD
+
+}
+
+.masthead .masthead-heading {
+  font-size: 2.75rem;
+  line-height: 2.75rem;
+}
