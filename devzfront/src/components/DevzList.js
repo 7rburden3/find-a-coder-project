@@ -10,8 +10,8 @@ class DevzList extends Component {
         });
 
         return (
-            <div class="container">
-                <div class="row">
+            <div className="container">
+                <div className="row">
                     {devNodes}
                 </div>
             </div>

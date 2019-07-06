@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 
 class DevDetail extends Component{
 
+  
+
   render (){
 
     return(

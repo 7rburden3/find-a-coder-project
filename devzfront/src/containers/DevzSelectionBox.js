@@ -19,13 +19,13 @@ class DevzSelectionBox extends Component{
 
         },
         {
-          id: 2,
+          id: 3,
           url: "https://source.unsplash.com/sNut2MqSmds/500x350",
           name: "Steve",
 
         },
         {
-          id: 2,
+          id: 4,
           url: "https://source.unsplash.com/ZI6p3i9SbVU/500x350",
           name: "Helen",
 
