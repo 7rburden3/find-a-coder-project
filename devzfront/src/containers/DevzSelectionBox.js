@@ -1,11 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import DevDetail from "../components/DevDetail"
 
 class DevzSelectionBox extends Component{
 
   render (){
 
     return(
-      <h2>Devz Selection Box</h2>
+      <Fragment>      
+        <DevDetail />
+      </Fragment>
     )
   }
 
