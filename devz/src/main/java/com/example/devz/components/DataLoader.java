@@ -1,8 +1,10 @@
 package com.example.devz.components;
 
 import com.example.devz.models.Developer;
+import com.example.devz.models.Project;
 import com.example.devz.models.Skill;
 import com.example.devz.repositories.developerRepository.DeveloperRepository;
+import com.example.devz.repositories.projectRepository.ProjectRepository;
 import com.example.devz.repositories.skillRepository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -18,19 +20,28 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     SkillRepository skillRepository;
 
+    @Autowired
+    ProjectRepository projectRepository;
+
 
     public void run(ApplicationArguments args) {
 
-        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com");
-        Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org");
-        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com");
-        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com");
+        Project devz = new Project("Devz");
+        projectRepository.save(devz);
+
+        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com", devz);
+        Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org", devz);
+        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com", devz);
+        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com", devz);
 
         Skill java = new Skill("Java");
         Skill ruby = new Skill("Ruby");
         Skill javascript = new Skill("Javascript");
         Skill sql = new Skill("SQL");
         Skill spring = new Skill("Spring");
+
+
+
 
 //        developerRepository.save(budgie);
 //        developerRepository.save(ralph);
@@ -67,6 +78,8 @@ public class DataLoader implements ApplicationRunner {
         malky.addSkill(ruby);
         developerRepository.save(malky);
 
+//        devz.addDeveloper(budgie);
+//        projectRepository.save(devz);
 
     }
 

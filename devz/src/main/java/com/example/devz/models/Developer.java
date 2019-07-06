@@ -1,5 +1,6 @@
 package com.example.devz.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -29,7 +30,7 @@ public class Developer {
     @Column(name = "email")
     private String email;
 
-//   @OneToMany(mappedBy = "id", fetch=FetchType.LAZY)
+//   @ManyToOne(mappedBy = "id", fetch=FetchType.LAZY)
 //    private List<Skill> skills;
 
     @JsonIgnore
@@ -49,19 +50,24 @@ public class Developer {
             })
     private List<Skill> skills;
 
+    @JsonIgnoreProperties("projects")
+    @ManyToOne
+    @JoinColumn(name="project_id", nullable = false)
+    private Project project;
 
 
     public Developer() {
 
     }
 
-    public Developer(String firstName, String lastName, String location, String github, String email) {
+    public Developer(String firstName, String lastName, String location, String github, String email, Project project) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
         this.github = github;
         this.email = email;
         this.skills = new ArrayList<>();
+        this.project = project;
     }
 
 
@@ -123,5 +129,13 @@ public class Developer {
 
     public void addSkill(Skill skill){
         this.skills.add(skill);
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
