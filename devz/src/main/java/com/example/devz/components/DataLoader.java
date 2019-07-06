@@ -37,15 +37,15 @@ public class DataLoader implements ApplicationRunner {
         Skill sql = new Skill("SQL");
         Skill spring = new Skill("Spring");
 
+        Project devz = new Project("Devz");
+        Project stockTracker = new Project("Stock Tracker");
+        Project dinosaurs = new Project("Dinosaurs");
+
         skillRepository.save(java);
         skillRepository.save(javascript);
         skillRepository.save(ruby);
         skillRepository.save(spring);
         skillRepository.save(sql);
-
-        Project devz = new Project("Devz");
-        Project stockTracker = new Project("Stock Tracker");
-        Project dinosaurs = new Project("Dinosaurs");
 
         projectRepository.save(devz);
         projectRepository.save(stockTracker);
