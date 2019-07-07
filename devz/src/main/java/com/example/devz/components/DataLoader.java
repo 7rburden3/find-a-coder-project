@@ -61,6 +61,7 @@ public class DataLoader implements ApplicationRunner {
 
         ralph.addSkill(sql);
         ralph.addSkill(ruby);
+        ralph.addSkill(java);
         ralph.addProject(devz);
         developerRepository.save(ralph);
 

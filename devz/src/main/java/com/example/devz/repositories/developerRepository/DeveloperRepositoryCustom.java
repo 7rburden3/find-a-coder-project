@@ -7,6 +7,7 @@ import java.util.List;
 public interface DeveloperRepositoryCustom {
 
     List<Developer> findDevelopersBySkill(String skill);
+    List<Developer> findDevelopersBySkillByLocation(String skill, String location);
 
 
 }

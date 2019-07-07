@@ -11,6 +11,7 @@ public interface DeveloperRepository extends JpaRepository<Developer, Long> {
 
     List<Developer> findDevelopersByLocation(String location);
     List<Developer> findDevelopersBySkill(String skill);
+    List<Developer> findDevelopersBySkillByLocation(String skill, String location);
 
 
 //    int countDevelopersBySkill(long skill_id);
