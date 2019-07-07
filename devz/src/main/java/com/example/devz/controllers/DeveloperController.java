@@ -24,18 +24,28 @@ public class DeveloperController {
     private SkillRepository skillRepository;
 
 
-    @GetMapping(value = "/location/{location}")
+    @GetMapping(value = "/{location}")
     public List<Developer> findDeveloperByLocation(@PathVariable String location){
     return developerRepository.findDevelopersByLocationIgnoreCase(location);
     }
 
-    @GetMapping(value= "/skills/skill/{skill}")
+    @GetMapping(value= "/skill/{skill}")
     public List<Developer> findDeveloperBySkill(@PathVariable String skill){
         return developerRepository.findDevelopersBySkill(skill);
     }
 
     @GetMapping(value = "/{skill}/{location}")
     public List<Developer> findDevelopersBySkillByLocation(@PathVariable String skill, @PathVariable String location){      return developerRepository.findDevelopersBySkillByLocation(skill, location);
+    }
+
+    @GetMapping(value = "/daily-rate/{dailyRate}")
+    public List<Developer> findDevelopersByDailyRate(@PathVariable int dailyRate){
+        return developerRepository.findDevelopersByDailyRate(dailyRate);
+    }
+
+    @GetMapping(value = "/daily-rate-over/{dailyRate}")
+    public List<Developer> findDevelopersByDailyRateOver(@PathVariable int dailyRate){
+        return developerRepository.findDevelopersByDailyRateGreaterThan(dailyRate);
     }
 
 }
