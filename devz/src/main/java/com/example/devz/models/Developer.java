@@ -30,6 +30,12 @@ public class Developer {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "experience")
+    private String experience;
+
+    @Column(name = "dailyRate")
+    private int dailyRate;
+
 //   @ManyToOne(mappedBy = "id", fetch=FetchType.LAZY)
 //    private List<Skill> skills;
 
@@ -71,12 +77,14 @@ public class Developer {
 
     }
 
-    public Developer(String firstName, String lastName, String location, String github, String email) {
+    public Developer(String firstName, String lastName, String location, String github, String email, String experience, int dailyRate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
         this.github = github;
         this.email = email;
+        this.experience = experience;
+        this.dailyRate = dailyRate;
         this.skills = new ArrayList<>();
         this.projects = new ArrayList<>();
     }
@@ -153,4 +161,21 @@ public class Developer {
     public void addProject(Project project) {
         this.projects.add(project);
     }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public int getDailyRate() {
+        return dailyRate;
+    }
+
+    public void setDailyRate(int dailyRate) {
+        this.dailyRate = dailyRate;
+    }
+
 }

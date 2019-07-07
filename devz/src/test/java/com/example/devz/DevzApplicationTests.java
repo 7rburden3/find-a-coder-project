@@ -58,7 +58,7 @@ public class DevzApplicationTests {
 
 	@Test
 	public void canFindAllDevelopersByLocationEdinburgh() {
-		List<Developer> countOfDevelopers = developerRepository.findDevelopersByLocation("Edinburgh");
+		List<Developer> countOfDevelopers = developerRepository.findDevelopersByLocationIgnoreCase("Edinburgh");
 		assertEquals(4, countOfDevelopers.size());
 	}
 

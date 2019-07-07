@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
+
 public class DeveloperRepositoryImpl implements DeveloperRepositoryCustom{
 
     @Autowired
@@ -25,12 +26,32 @@ public class DeveloperRepositoryImpl implements DeveloperRepositoryCustom{
         try {
             Criteria cr = session.createCriteria(Developer.class);
             cr.createAlias("skills", "skillAlias");
-            cr.add(Restrictions.eq("skillAlias.skill", skill));
+            cr.add(Restrictions.eq("skillAlias.skill", skill).ignoreCase());
             result = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
         }
         return result;
     }
+
+    @Override
+    @Transactional
+    public List<Developer> findDevelopersBySkillByLocation(String skill, String location) {
+        List<Developer> results = null;
+        Session session = entityManager.unwrap(Session.class);
+
+        try {
+            Criteria cr = session.createCriteria(Developer.class);
+            cr.createAlias("skills", "skillAlias");
+            cr.add(Restrictions.eq("skillAlias.skill", skill).ignoreCase());
+            cr.add(Restrictions.eq("location", location).ignoreCase());
+            results = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
 
 }
