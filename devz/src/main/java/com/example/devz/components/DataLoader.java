@@ -27,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
 
         Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com");
-        Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org");
+        Developer ralph = new Developer("Ralph", "Burden", "Dalkeith", "7rburden3", "ralph@codeclan.org");
         Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com");
         Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com");
 
