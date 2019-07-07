@@ -26,13 +26,10 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        Project devz = new Project("Devz");
-        projectRepository.save(devz);
-
-        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com", devz);
-        Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org", devz);
-        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com", devz);
-        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com", devz);
+        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com");
+        Developer ralph = new Developer("Ralph", "Burden", "Edinburgh", "7rburden3", "ralph@codeclan.org");
+        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com");
+        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com");
 
         Skill java = new Skill("Java");
         Skill ruby = new Skill("Ruby");
@@ -40,13 +37,9 @@ public class DataLoader implements ApplicationRunner {
         Skill sql = new Skill("SQL");
         Skill spring = new Skill("Spring");
 
-
-
-
-//        developerRepository.save(budgie);
-//        developerRepository.save(ralph);
-//        developerRepository.save(kenny);
-//        developerRepository.save(malky);
+        Project devz = new Project("Devz");
+        Project stockTracker = new Project("Stock Tracker");
+        Project dinosaurs = new Project("Dinosaurs");
 
         skillRepository.save(java);
         skillRepository.save(javascript);
@@ -54,33 +47,33 @@ public class DataLoader implements ApplicationRunner {
         skillRepository.save(spring);
         skillRepository.save(sql);
 
+        projectRepository.save(devz);
+        projectRepository.save(stockTracker);
+        projectRepository.save(dinosaurs);
+
+
         budgie.addSkill(sql);
+        budgie.addSkill(ruby);
+        budgie.addProject(devz);
+        budgie.addProject(stockTracker);
         developerRepository.save(budgie);
 
-        budgie.addSkill(ruby);
-        developerRepository.save(budgie);
 
         ralph.addSkill(sql);
-        developerRepository.save(ralph);
-
         ralph.addSkill(ruby);
+        ralph.addProject(devz);
         developerRepository.save(ralph);
 
         kenny.addSkill(sql);
-        developerRepository.save(kenny);
-
         kenny.addSkill(ruby);
+        kenny.addProject(devz);
+        kenny.addProject(dinosaurs);
         developerRepository.save(kenny);
-
         
         malky.addSkill(sql);
-        developerRepository.save(malky);
-
         malky.addSkill(ruby);
+        malky.addProject(devz);
         developerRepository.save(malky);
-
-//        devz.addDeveloper(budgie);
-//        projectRepository.save(devz);
 
     }
 
