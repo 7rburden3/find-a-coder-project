@@ -10,6 +10,7 @@ import java.util.List;
 public interface DeveloperRepository extends JpaRepository<Developer, Long> {
 
     List<Developer> findDevelopersByLocation(String location);
+    List<Developer> findDevelopersBySkill(String skill);
 
 
 //    int countDevelopersBySkill(long skill_id);
