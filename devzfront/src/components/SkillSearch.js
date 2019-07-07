@@ -26,16 +26,15 @@ class SkillSearch extends React.Component{
     let value = event.target.value
     event.preventDefault();
     this.setState({ searchSkill: value });
+
     let suggestions = []
     if(value.length > 0){
       const regex = new RegExp(`^${value}`, 'i');
       suggestions = this.items.sort().filter(v => regex.test(v));
-      
-      console.log(suggestions)
     }
     this.setState({ suggestions: suggestions, text: value })
-    
-    console.log(this.state.suggestions)
+
+    this.props.filterSkill(value) 
   } 
 
   suggestionSelected(value) {
@@ -63,10 +62,10 @@ class SkillSearch extends React.Component{
 
   handleSubmit(event) {
     event.preventDefault();
+    
   }
 
   render (){
-
     return(
       <div className="mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>

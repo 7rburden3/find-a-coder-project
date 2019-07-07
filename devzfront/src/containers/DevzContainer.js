@@ -8,10 +8,11 @@ constructor(props){
   super(props)
   this.state = {
     developers: [],
-    filteredDevelopers: []
+    filteredDevelopers: [],
+    searchState: 0,
+    searchTerm: undefined
   }
-
-  this.filter = this.filter.bind(this);
+  this.filterBySkill = this.filterBySkill.bind(this);
 }
 
 
@@ -19,35 +20,49 @@ constructor(props){
     fetch("http://localhost:8080/developers")
       .then(res => res.json())
       .then((data) => {
-        console.log()
         const newData = data._embedded.developers
         const promises = newData
-
         Promise.all(promises)
           .then((results) => {
-            console.log("results", results)
             this.setState({ developers: results});
           });
       });
+    
   }
 
-  filter(searchTerm) {
-    // const lowerSearch = searchTerm.toLowerCase();
-    // const filteredDevelopers = this.state.developers.filter((developer) => {
-    //   developer.skill.toLowerCase().indexOf(lowerSearch) > -1;
-    // });
-    // this.setState({ filteredDevelopers: filteredDevelopers });
-    console.log(searchTerm)
+  filterBySkill(searchTerm) {
+    if(searchTerm !== undefined){
+    const lowerSearch = searchTerm.toLowerCase();
+      console.log(`http://localhost:8080/developers/skill/${searchTerm}`)
+      fetch(`http://localhost:8080/developers/skill/${searchTerm}`)
+        .then(res => res.json())
+        .then((data) => {
+          
+          if(data.length > 0){
+          const promises = data
+          
+          Promise.all(promises)
+            .then((results) => {
+              this.setState({ developers: results });
+              console.log(this.state.filteredDevelopers)
+            });
+          }
+        });
+    }
   }
+
 
 
   render (){
     console.log(this.state.developers)
     return(
       <Fragment>
-      <NavBar />
-      <HeaderBox/>
-      <DevzSelectionBox filter = {this.filter} data = {this.state.developers}/>
+        <NavBar />
+        <HeaderBox filter={this.filterBySkill}/>
+        <DevzSelectionBox  
+          dataOnLoad = {this.state.developers} 
+          filteredData = {this.state.filteredDevelopers} 
+        />
       </Fragment>
     )
   }

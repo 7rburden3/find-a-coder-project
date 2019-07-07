@@ -4,16 +4,20 @@ import DevzList from '../components/DevzList';
 class DevzSelectionBox extends Component{
   constructor(props) {
     super(props);
+    this.state = {
+      data: []
+    }
 
-  
-    
   }
 
+  
+
   render (){
-    console.log(this.props.data)
+    
+    console.log(this.state.data)
     return(
       <Fragment>      
-        <DevzList data = {this.props.data}/>
+        <DevzList data = {this.props.dataOnLoad} filteredData = {this.props.filteredData}/>
       </Fragment>
     )
   }

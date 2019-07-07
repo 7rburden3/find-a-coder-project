@@ -3,6 +3,10 @@ import SkillSearch from "../components/SkillSearch"
 import LocationSearch from "../components/LocationSearch"
 
 class HeaderBox extends Component{
+  constructor(props) {
+    super(props);
+
+  }
 
   render (){
 
@@ -13,7 +17,7 @@ class HeaderBox extends Component{
             <h1 className="font-weight-light text-white">Find a Developer</h1>
 
             <div className="row">
-              <SkillSearch />
+              <SkillSearch filterSkill = {this.props.filter} />
               <LocationSearch />
             </div>
           </div>
