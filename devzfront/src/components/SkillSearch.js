@@ -51,9 +51,9 @@ class SkillSearch extends React.Component{
       return null
     }
     return (
-      <ul>
-        {suggestions.map((item)=> <li onClick={()=> this.suggestionSelected(item)}>{item}</li>)}
-      </ul>
+        <ul className="suggestions">
+          {suggestions.map((item)=> <li onClick={()=> this.suggestionSelected(item)}>{item}</li>)}
+        </ul>
     )
   }
 
@@ -67,13 +67,8 @@ class SkillSearch extends React.Component{
 
   render (){
 
-    const skillItems = this.items.map(item => {
-      return <li>{item}</li>
-    });
-
-
     return(
-      <div className="searchskill text-center mb-4 col-md-6">
+      <div className="mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>
           <input 
             className ="form-control-lg" 
@@ -84,9 +79,9 @@ class SkillSearch extends React.Component{
             onChange={this.handleChange}
             value = {this.state.text}
             />
-          
-        </form>
           {/* {this.renderSuggestions()} */}
+        </form>
+         
 			</div>
     )
   }

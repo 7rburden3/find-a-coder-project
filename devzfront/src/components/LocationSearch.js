@@ -25,7 +25,7 @@ class LocationSearch extends Component{
   render (){
 
     return(
-      <div className="active-cyan-3 active-cyan-4 mb-4 col-md-6">
+      <div className="mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>
           <input
             className="form-control-lg"

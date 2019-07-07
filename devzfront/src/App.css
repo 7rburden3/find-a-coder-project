@@ -1,36 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* Non-react  */
 
@@ -51,25 +19,33 @@ body {
   line-height: 2.75rem;
 }
 
-/*  
-.searchskill ul{
-  text-align: left;
+ 
+.suggestions {
   position: relative;
-  left: 13%;
+  left: 28%;
+  border-radius: 4px;
   list-style-type: none;
   width: 245px;
   background-color: white;
   margin: 0;
   padding: 0;
+  overflow-y: auto;
 }
 
-.searchskill ul li{
+.suggestions li{
   text-align: left;
   padding: 10px 5px;
   cursor: pointer;
 }
 
-.searchskill ul li:hover{
+.suggestions li:hover{
   background-color: rgb(198, 216, 235);
 }
- */
+
+
+
+@media only screen and (max-width: 1025px) {
+  .suggestions{
+    left: 14%;
+  }
+}
