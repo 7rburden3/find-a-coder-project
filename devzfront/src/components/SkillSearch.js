@@ -73,7 +73,7 @@ class SkillSearch extends React.Component{
 
 
     return(
-      <div className="searchkill active-cyan-3 active-cyan-4 mb-4 col-md-6">
+      <div className="searchskill text-center mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>
           <input 
             className ="form-control-lg" 
@@ -84,10 +84,9 @@ class SkillSearch extends React.Component{
             onChange={this.handleChange}
             value = {this.state.text}
             />
+          
         </form>
-        <ul>
-          {this.renderSuggestions()}
-        </ul>
+          {/* {this.renderSuggestions()} */}
 			</div>
     )
   }

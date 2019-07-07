@@ -51,18 +51,25 @@ body {
   line-height: 2.75rem;
 }
 
+/*  
 .searchskill ul{
-  list-style-type: none;
   text-align: left;
+  position: relative;
+  left: 13%;
+  list-style-type: none;
+  width: 245px;
   background-color: white;
   margin: 0;
+  padding: 0;
 }
 
 .searchskill ul li{
+  text-align: left;
   padding: 10px 5px;
   cursor: pointer;
 }
 
 .searchskill ul li:hover{
-  background-color: #6A8CAD;
+  background-color: rgb(198, 216, 235);
 }
+ */
