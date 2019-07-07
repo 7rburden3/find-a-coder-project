@@ -5,7 +5,7 @@ class DevzList extends Component {
     render() {
         const devNodes = this.props.data.map(developer => {
             return (
-                <DevDetail avatar={developer.url} key={developer.id} name={developer.name}></DevDetail>
+                <DevDetail avatar= "/../../public/holder.jpg" key={developer.id} name={developer.firstName}></DevDetail>
             );
         });
 

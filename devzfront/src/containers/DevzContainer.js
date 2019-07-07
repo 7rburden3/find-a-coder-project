@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Fragment} from 'react';
 import HeaderBox from './HeaderBox'
 import NavBar from '../components/NavBar'
 import DevzSelectionBox from './DevzSelectionBox'
@@ -19,15 +19,14 @@ constructor(props){
     fetch("http://localhost:8080/developers")
       .then(res => res.json())
       .then((data) => {
-        const newData = data.slice(0, 20);
-        const promises = newData.map((id) => {
-          return fetch(`http://localhost:8080/developers/${id}`)
-            .then(res => res.json());
-        });
+        console.log()
+        const newData = data._embedded.developers
+        const promises = newData
 
         Promise.all(promises)
           .then((results) => {
-            this.setState({ developers: results, filteredDevelopers: results });
+            console.log("results", results)
+            this.setState({ developers: results});
           });
       });
   }
@@ -43,12 +42,12 @@ constructor(props){
 
 
   render (){
-
+    console.log(this.state.developers)
     return(
       <Fragment>
       <NavBar />
       <HeaderBox/>
-      <DevzSelectionBox filter = {this.filter}/>
+      <DevzSelectionBox filter = {this.filter} data = {this.state.developers}/>
       </Fragment>
     )
   }
