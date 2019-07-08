@@ -2,13 +2,11 @@ package com.example.devz.controllers;
 
 
 import com.example.devz.models.Developer;
+import com.example.devz.projections.EmbedSkill;
 import com.example.devz.repositories.developerRepository.DeveloperRepository;
 import com.example.devz.repositories.skillRepository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +20,19 @@ public class DeveloperController {
 
     @Autowired
     private SkillRepository skillRepository;
+
+//    @GetMapping(value = "")
+//    public List<Developer> findEverthingOrNothing(@RequestParam(required = false) String skill, @RequestParam(required = false) String location) {
+//        if (skill != null && location != null) {
+//            return developerRepository.findDevelopersBySkillByLocation(skill, location);
+//        } else if (skill != null && location == null) {
+//            return developerRepository.findDevelopersBySkill(skill);
+//        } else if (skill == null && location != null) {
+//            return developerRepository.findDevelopersByLocationIgnoreCase(location);
+//        } else {
+//            return developerRepository.findAll();
+//        }
+//    }
 
 
     @GetMapping(value = "/{location}")
