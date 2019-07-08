@@ -9,6 +9,16 @@ class AddDevBox extends Component {
 
     handleDeveloperSubmit(newDeveloper) {
         console.log(newDeveloper);
+        fetch('http://localhost:8080/developers',
+            {
+                method: 'POST', body: JSON.stringify(newDeveloper),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            // .then(res => res.json())
+            // .then(returnData => 
         
     }
 
