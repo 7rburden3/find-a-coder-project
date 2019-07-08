@@ -36,6 +36,18 @@ public class DataLoader implements ApplicationRunner {
         Skill javascript = new Skill("Javascript");
         Skill sql = new Skill("SQL");
         Skill spring = new Skill("Spring");
+        Skill cSharp = new Skill("C#");
+        Skill cPlusPlus = new Skill("C++");
+        Skill php = new Skill("Php");
+        Skill pascal = new Skill("Pascal");
+        Skill c = new Skill("C");
+        Skill cypher = new Skill("Cypher");
+        Skill fortran = new Skill("Fortran");
+        Skill groovy = new Skill("Groovy");
+        Skill perl = new Skill("Perl");
+        Skill python = new Skill("Python");
+        Skill swift = new Skill("Swift");
+        Skill rails = new Skill("Rails");
 
         Project devz = new Project("Devz");
         Project stockTracker = new Project("Stock Tracker");
@@ -46,6 +58,18 @@ public class DataLoader implements ApplicationRunner {
         skillRepository.save(ruby);
         skillRepository.save(spring);
         skillRepository.save(sql);
+        skillRepository.save(cypher);
+        skillRepository.save(cSharp);
+        skillRepository.save(cPlusPlus);
+        skillRepository.save(php);
+        skillRepository.save(pascal);
+        skillRepository.save(c);
+        skillRepository.save(fortran);
+        skillRepository.save(groovy);
+        skillRepository.save(perl);
+        skillRepository.save(python);
+        skillRepository.save(swift);
+        skillRepository.save(rails);
 
         projectRepository.save(devz);
         projectRepository.save(stockTracker);
