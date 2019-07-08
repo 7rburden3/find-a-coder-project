@@ -78,6 +78,10 @@ public class DataLoader implements ApplicationRunner {
 
         budgie.addSkill(sql);
         budgie.addSkill(ruby);
+        budgie.addSkill(fortran);
+        budgie.addSkill(c);
+        budgie.addSkill(rails);
+        budgie.addSkill(swift);
         budgie.addProject(devz);
         budgie.addProject(stockTracker);
         developerRepository.save(budgie);
@@ -86,17 +90,30 @@ public class DataLoader implements ApplicationRunner {
         ralph.addSkill(sql);
         ralph.addSkill(ruby);
         ralph.addSkill(java);
+        ralph.addSkill(c);
+        ralph.addSkill(cPlusPlus);
+        ralph.addSkill(cSharp);
+        ralph.addSkill(cypher);
+        ralph.addSkill(python);
         ralph.addProject(devz);
         developerRepository.save(ralph);
 
         kenny.addSkill(sql);
         kenny.addSkill(ruby);
+        kenny.addSkill(php);
+        kenny.addSkill(perl);
+        kenny.addSkill(c);
+        kenny.addSkill(php);
         kenny.addProject(devz);
         kenny.addProject(dinosaurs);
         developerRepository.save(kenny);
         
         malky.addSkill(sql);
         malky.addSkill(ruby);
+        malky.addSkill(java);
+        malky.addSkill(javascript);
+        malky.addSkill(cPlusPlus);
+        malky.addSkill(cSharp);
         malky.addProject(devz);
         developerRepository.save(malky);
 
