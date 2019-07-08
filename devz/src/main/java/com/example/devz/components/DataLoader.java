@@ -26,10 +26,10 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com", "Junior Developer", 500, "https://unsplash.com/photos/CXTfbtKzjxI/500x350");
-        Developer ralph = new Developer("Ralph", "Burden", "Dalkeith", "7rburden3", "ralph@codeclan.org", "Senior Developer", 800, "https://unsplash.com/photos/UJLAMjEjISo/500x350");
-        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com", "Coding Guru", 1000, "https://unsplash.com/photos/TvPCUHten1o/500x350");
-        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com", "Graduate", 250, "https://unsplash.com/photos/OUd8p4KN4bs/500x350");
+        Developer budgie = new Developer("James", "Budge", "Edinburgh", "JamesDBudge", "thebudgie@gmail.com", "Junior Developer", 500, "https://source.unsplash.com/ZI6p3i9SbVU/500x350");
+        Developer ralph = new Developer("Ralph", "Burden", "Dalkeith", "7rburden3", "ralph@codeclan.org", "Senior Developer", 800, "https://source.unsplash.com/sNut2MqSmds/500x350");
+        Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com", "Coding Guru", 1000, "https://source.unsplash.com/TMgQMXoglsM/500x350");
+        Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com", "Graduate", 250, "https://source.unsplash.com/9UVmlIb0wJU/500x350");
 
         Skill java = new Skill("Java");
         Skill ruby = new Skill("Ruby");

@@ -42,4 +42,7 @@ class NewSkillForm extends Component {
     }
 }
 
+
+
+    
 export default NewSkillForm

@@ -5,15 +5,12 @@ class DevDetail extends Component{
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this)
   }
   
-  handleClick(){
-    console.log(this.props.name)
-  }
+
 
   render (){
-
+    console.log(this.props.avatar)
    
 
     return(

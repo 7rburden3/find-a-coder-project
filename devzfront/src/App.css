@@ -101,3 +101,18 @@ body {
 .skills{
   list-style: none;
 }
+
+/* forms */
+
+.page-section {
+  padding: 100px 0;
+}
+
+
+.form-control{
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}

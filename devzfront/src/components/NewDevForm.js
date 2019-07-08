@@ -74,76 +74,145 @@ class NewDevForm extends Component {
 
     render() {
         return (
-            <form className="developer-form" onSubmit={this.handleSubmit}>
-            <label for="first-name">First Name</label>
-                <input type="text"
-                    id="first-name"
-                    placeholder="First Name"
-                    value={this.state.firstName}
-                    onChange={this.handleFirstNameChange}
-                />
-            
-            <label for="last-name">Last Name</label>
-                <input type="text"
-                     id="last-name"
-                     placeholder="Last Name"
-                    label="Second Name"
-                    value={this.state.lastName}
-                    onChange={this.handleLastNameChange}
-                />    
-            <label for="location">Location</label>
-                <input type="text"
-                     id="location"
-                     placeholder="Location"
-                    label="Location"
-                    value={this.state.location}
-                    onChange={this.handleLocationChange}
-                />    
-            <label for="github">github</label>
-                <input type="text"
-                      id="github"
-                      placeholder="github"
-                    label="github"
-                    value={this.state.github}
-                    onChange={this.handleGithubChange}
-                />    
-             <label for="email">email</label>
-               <input type="text"
-                      id="email"
-                      placeholder="email"
-                    label="email"
-                    value={this.state.email}
-                    onChange={this.handleEmailChange}
-                />    
-              <label for="experience">Experience</label>
-              <input type="text"
-                       id="experience"
-                       placeholder="Experience"
-                    label="Experience"
-                    value={this.state.experience}
-                    onChange={this.handleExperienceChange}
-                />    
-             <label for="daily-rate">Daily Rate</label>
-               <input type="number"
-                        id="daily-rate"
-                        placeholder="Daily Rate"
-                    label="Daily Rate"
-                    value={this.state.dailyRate}
-                    onChange={this.handleDailyRateChange}
-                />    
-             <label for="picture">Picture</label>
-               <input type="text"
-                    id="picture"
-                    placeholder="Picture"
-                    label="Picture"
-                    value={this.state.picture}
-                    onChange={this.handlePictureChange}
-                />    
-                <input type="submit" value="Submit"/>
-           </form>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <h1>Add a new developer</h1>
+                    <form className="developer-form" onSubmit={this.handleSubmit}>
+                        <div class="row">
+                            <div class="col-md">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                    <input 
+                                        type="text"
+                                        className= "form-control"
+                                        id="first-name"
+                                        placeholder="First Name"
+                                        value={this.state.firstName}
+                                        onChange={this.handleFirstNameChange}
+                                    />
+                                
+                                <label for="last-name">Last Name</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        id="last-name"
+                                        placeholder="Last Name"
+                                        label="Second Name"
+                                        value={this.state.lastName}
+                                        onChange={this.handleLastNameChange}
+                                    />    
+                                <label for="location">Location</label>
+                                    <input 
+                                        className="form-control"
+                                        type="text"
+                                        id="location"
+                                        placeholder="Location"
+                                        label="Location"
+                                        value={this.state.location}
+                                        onChange={this.handleLocationChange}
+                                    />    
+                                <label for="github">github</label>
+                                    <input 
+                                        className="form-control"
+                                        type="text"
+                                        id="github"
+                                        placeholder="github"
+                                        label="github"
+                                        value={this.state.github}
+                                        onChange={this.handleGithubChange}
+                                    />    
+                                <label for="email">email</label>
+                                <input 
+                                        className="form-control"
+                                        type="text"
+                                        id="email"
+                                        placeholder="email"
+                                        label="email"
+                                        value={this.state.email}
+                                        onChange={this.handleEmailChange}
+                                    />    
+                                <label for="experience">Experience</label>
+                                <input 
+                                        className="form-control"
+                                        type="text"
+                                        id="experience"
+                                        placeholder="Experience"
+                                        label="Experience"
+                                        value={this.state.experience}
+                                        onChange={this.handleExperienceChange}
+                                    />    
+                                <label for="daily-rate">Daily Rate</label>
+                                <input 
+                                        className="form-control"
+                                        type="number"
+                                            id="daily-rate"
+                                            placeholder="Daily Rate"
+                                        label="Daily Rate"
+                                        value={this.state.dailyRate}
+                                        onChange={this.handleDailyRateChange}
+                                    />    
+                                <label for="picture">Picture</label>
+                                <input 
+                                        className="form-control"
+                                        type="text"
+                                        id="picture"
+                                        placeholder="Picture"
+                                        label="Picture"
+                                        value={this.state.picture}
+                                        onChange={this.handlePictureChange}
+                                    />    
+                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">submit</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+           </div>
         )
     }
    
 }
 
+
+
+//    
+//         <h2 className="section-heading text-uppercase">Contact Me</h2>
+//         <h3 className="section-subheading text-muted">If you'd like to work with me or ask a question. </h3>
+//     </div>
+// </div>
+//     <div className="row">
+//         <div className="col-lg-12">
+//             <form id="contactForm" name="sentMessage" novalidate="novalidate">
+//                 <div className="row">
+//                     <div className="col-md-6">
+//                         <div className="form-group">
+//                             <input className="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+//                                 <p className="help-block text-danger"></p>
+//                 </div>
+//                             <div className="form-group">
+//                                 <input className="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+//                                     <p className="help-block text-danger"></p>
+//                 </div>
+//                                 <div className="form-group">
+//                                     <input className="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+//                                         <p className="help-block text-danger"></p>
+//                 </div>
+//                                 </div>
+//                                 <div className="col-md-6">
+//                                     <div className="form-group">
+//                                         <textarea className="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+//                                         <p className="help-block text-danger"></p>
+//                                     </div>
+//                                 </div>
+//                                 <div className="clearfix"></div>
+//                                 <div className="col-lg-12 text-center">
+//                                     <div id="success"></div>
+//                                     <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+//                                 </div>
+//                             </div>
+//           </form>
+//                     </div>
+//                 </div>
+//     </div>
 export default NewDevForm

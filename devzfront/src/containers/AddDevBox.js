@@ -26,8 +26,9 @@ class AddDevBox extends Component {
 
         return (
             <Fragment>
-                <h1>DEVZ! Add!</h1>
-                <NewDevForm handleDeveloperSubmit={this.handleDeveloperSubmit}/>
+                <section class="page-section" id="add-dev-form">
+                 <NewDevForm handleDeveloperSubmit={this.handleDeveloperSubmit}/>
+                </section>
             </Fragment>
         )
     }
