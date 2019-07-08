@@ -75,44 +75,67 @@ class NewDevForm extends Component {
     render() {
         return (
             <form className="developer-form" onSubmit={this.handleSubmit}>
+            <label for="first-name">First Name</label>
                 <input type="text"
+                    id="first-name"
                     placeholder="First Name"
                     value={this.state.firstName}
                     onChange={this.handleFirstNameChange}
                 />
             
+            <label for="last-name">Last Name</label>
                 <input type="text"
-                    placeholder="Last Name"
+                     id="last-name"
+                     placeholder="Last Name"
+                    label="Second Name"
                     value={this.state.lastName}
                     onChange={this.handleLastNameChange}
                 />    
+            <label for="location">Location</label>
                 <input type="text"
-                    placeholder="Location"
+                     id="location"
+                     placeholder="Location"
+                    label="Location"
                     value={this.state.location}
                     onChange={this.handleLocationChange}
                 />    
+            <label for="github">github</label>
                 <input type="text"
-                    placeholder="github"
+                      id="github"
+                      placeholder="github"
+                    label="github"
                     value={this.state.github}
                     onChange={this.handleGithubChange}
                 />    
-                <input type="text"
-                    placeholder="email"
+             <label for="email">email</label>
+               <input type="text"
+                      id="email"
+                      placeholder="email"
+                    label="email"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
                 />    
-                <input type="text"
-                    placeholder="Experience"
+              <label for="experience">Experience</label>
+              <input type="text"
+                       id="experience"
+                       placeholder="Experience"
+                    label="Experience"
                     value={this.state.experience}
                     onChange={this.handleExperienceChange}
                 />    
-                <input type="number"
-                    placeholder="Daily Rate"
+             <label for="daily-rate">Daily Rate</label>
+               <input type="number"
+                        id="daily-rate"
+                        placeholder="Daily Rate"
+                    label="Daily Rate"
                     value={this.state.dailyRate}
                     onChange={this.handleDailyRateChange}
                 />    
-                <input type="text"
+             <label for="picture">Picture</label>
+               <input type="text"
+                    id="picture"
                     placeholder="Picture"
+                    label="Picture"
                     value={this.state.picture}
                     onChange={this.handlePictureChange}
                 />    
