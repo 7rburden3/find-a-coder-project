@@ -33,7 +33,7 @@ constructor(props){
   filterBySkill(searchTerm) {
     if(searchTerm !== undefined){
     const lowerSearch = searchTerm.toLowerCase();
-      console.log(`http://localhost:8080/developers/skill/${searchTerm}`)
+      // console.log(`http://localhost:8080/developers/skill/${searchTerm}`)
       fetch(`http://localhost:8080/developers/skill/${searchTerm}`)
         .then(res => res.json())
         .then((data) => {
@@ -44,17 +44,24 @@ constructor(props){
           Promise.all(promises)
             .then((results) => {
               this.setState({ developers: results });
-              console.log(this.state.filteredDevelopers)
+              // console.log(this.state.filteredDevelopers)
             });
           }
         });
     }
+  
+    this.setState(prevState => {
+      return {searchTerm: searchTerm}})
+    console.log(searchTerm)
+    setTimeout(() => (console.log(this.state.searchTerm),1000)
   }
+
+  
 
 
 
   render (){
-    console.log(this.state.developers)
+    // console.log(this.state.developers)
     return(
       <Fragment>
         <NavBar />
