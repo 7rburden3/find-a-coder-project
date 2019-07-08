@@ -41,57 +41,36 @@ constructor(props){
 
   getSkill (searchTerm) {
     this.setState( 
-     {skillSearch: searchTerm},this.filter
-    );
-    // console.log(this.state.skillSearch);
-    // this.filter();
+     {skillSearch: searchTerm},this.filter );
   }
 
   getLocation (searchTerm) {
     this.setState(
-      {locationSearch: searchTerm},this.filter
-    );
-        console.log(searchTerm);
+      {locationSearch: searchTerm},this.filter);
   }
 
-  filter() {
-    console.log('i am running')
 
-  if (this.state.skillSearch !== undefined && this.state.locationSearch !== undefined){
-    let lowerSkillSearch = this.state.skillSearch.toLowerCase();
-    let lowerLocationSearch = this.state.locationSearch.toLowerCase();
-      fetch(`http://localhost:8080/developers/${lowerSkillSearch}/${lowerLocationSearch}`)
+  filter() {
+    let skillSearch = this.state.skillSearch
+    let locationSearch = this.state.locationSearch
+  if (skillSearch !== undefined && locationSearch !== undefined){
+      fetch(`http://localhost:8080/developers/${skillSearch}/${locationSearch}`)
         .then(res => res.json())
         .then((data) => {
-          
           if(data.length > 0){
-          const promises = data
-          
-          Promise.all(promises)
-            .then((results) => {
-              this.setState({ developers: results });
-              // console.log(this.state.filteredDevelopers)
-            });
+            this.setState({ developers: data});
           }
         }
 );
   }
-
    else if (this.state.skillSearch !== undefined){     
     let lowerSearch = this.state.skillSearch.toLowerCase();
       console.log(`http://localhost:8080/developers/skill/${lowerSearch}`)
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
         .then((data) => {
-          
-          if(data.length > 0){
-          const promises = data
-          
-          Promise.all(promises)
-            .then((results) => {
-              this.setState({ developers: results });
-              // console.log(this.state.filteredDevelopers)
-            });
+          if (data.length > 0) {
+            this.setState({ developers: data });
           }
         }
 );
@@ -102,15 +81,8 @@ constructor(props){
         fetch(`http://localhost:8080/developers/${lowerSearch}`)
           .then(res => res.json())
           .then((data) => {
-            
-            if(data.length > 0){
-            const promises = data
-            
-            Promise.all(promises)
-              .then((results) => {
-                this.setState({ developers: results });
-                // console.log(this.state.filteredDevelopers)
-              });
+            if (data.length > 0) {
+              this.setState({ developers: data });
             }
           }
   );
