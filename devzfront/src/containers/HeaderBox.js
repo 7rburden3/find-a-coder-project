@@ -17,8 +17,8 @@ class HeaderBox extends Component{
             <h1 className="font-weight-light text-white">Find a Developer</h1>
 
             <div className="row">
-              <SkillSearch filterSkill = {this.props.filter} />
-              <LocationSearch />
+              <SkillSearch getSkill = {this.props.getSkill}  />
+              <LocationSearch getLocation = {this.props.getLocation} />
             </div>
           </div>
 </header>
