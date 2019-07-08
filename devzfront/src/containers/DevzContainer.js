@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import HeaderBox from './HeaderBox'
 import NavBar from '../components/NavBar'
 import DevzSelectionBox from './DevzSelectionBox'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 class DevzContainer extends React.Component{
 constructor(props){
