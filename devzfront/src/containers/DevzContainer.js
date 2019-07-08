@@ -10,9 +10,11 @@ constructor(props){
     developers: [],
     filteredDevelopers: [],
     searchState: 0,
-    searchTerm: undefined
+    skillSearch: undefined,
+    locationSearch: undefined
   }
-  this.filterBySkill = this.filterBySkill.bind(this);
+  this.getSkill = this.getSkill.bind(this);
+  this.filter = this.filter.bind(this);
 }
 
 
@@ -27,14 +29,25 @@ constructor(props){
             this.setState({ developers: results});
           });
       });
-    
+      this.filter()
+      console.log(this.skillSearch);
+      
+    }
+
+  getSkill (searchTerm) {
+    this.setState( 
+     {skillSearch: searchTerm},this.filter
+    );
+    // console.log(this.state.skillSearch);
+    // this.filter();
   }
 
-  filterBySkill(searchTerm) {
-    if(searchTerm !== undefined){
-    const lowerSearch = searchTerm.toLowerCase();
-      console.log(`http://localhost:8080/developers/skill/${searchTerm}`)
-      fetch(`http://localhost:8080/developers/skill/${searchTerm}`)
+  filter() {
+    console.log('i am running')
+   if (this.state.skillSearch !== undefined){     
+    let lowerSearch = this.state.skillSearch.toLowerCase();
+      console.log(`http://localhost:8080/developers/skill/${lowerSearch}`)
+      fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
         .then((data) => {
           
@@ -48,9 +61,8 @@ constructor(props){
             });
           }
         });
-    }
+      }
   }
-
 
 
   render (){
@@ -58,7 +70,7 @@ constructor(props){
     return(
       <Fragment>
         <NavBar />
-        <HeaderBox filter={this.filterBySkill}/>
+        <HeaderBox filter={this.getSkill}/>
         <DevzSelectionBox  
           dataOnLoad = {this.state.developers} 
           filteredData = {this.state.filteredDevelopers} 
