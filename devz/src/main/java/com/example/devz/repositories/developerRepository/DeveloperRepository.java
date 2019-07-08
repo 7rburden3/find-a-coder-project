@@ -10,7 +10,7 @@ import java.util.List;
 
 @RepositoryRestResource(excerptProjection = EmbedSkill.class)
 public interface DeveloperRepository extends JpaRepository<Developer, Long> {
-
+      
     List<Developer> findDevelopersByLocationIgnoreCase(String location);
     List<Developer> findDevelopersBySkill(String skill);
     List<Developer> findDevelopersBySkillByLocation(String skill, String location);
