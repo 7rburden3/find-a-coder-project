@@ -48,16 +48,36 @@ constructor(props){
   }
 
   getLocation (searchTerm) {
-    // this.setState(
-      // {locationSearch: searchTerm},this.filter
-    // );
+    this.setState(
+      {locationSearch: searchTerm},this.filter
+    );
         console.log(searchTerm);
-
   }
 
   filter() {
     console.log('i am running')
-   if (this.state.skillSearch !== undefined){     
+
+  if (this.state.skillSearch !== undefined && this.state.locationSearch !== undefined){
+    let lowerSkillSearch = this.state.skillSearch.toLowerCase();
+    let lowerLocationSearch = this.state.locationSearch.toLowerCase();
+      fetch(`http://localhost:8080/developers/${lowerSkillSearch}/${lowerLocationSearch}`)
+        .then(res => res.json())
+        .then((data) => {
+          
+          if(data.length > 0){
+          const promises = data
+          
+          Promise.all(promises)
+            .then((results) => {
+              this.setState({ developers: results });
+              // console.log(this.state.filteredDevelopers)
+            });
+          }
+        }
+);
+  }
+
+   else if (this.state.skillSearch !== undefined){     
     let lowerSearch = this.state.skillSearch.toLowerCase();
       console.log(`http://localhost:8080/developers/skill/${lowerSearch}`)
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
@@ -73,12 +93,29 @@ constructor(props){
               // console.log(this.state.filteredDevelopers)
             });
           }
-        });
+        }
+);
       }
+      else if (this.state.locationSearch !== undefined) {
+        let lowerSearch = this.state.locationSearch.toLowerCase();
+        console.log(`http://localhost:8080/developers/${lowerSearch}`)
+        fetch(`http://localhost:8080/developers/${lowerSearch}`)
+          .then(res => res.json())
+          .then((data) => {
+            
+            if(data.length > 0){
+            const promises = data
+            
+            Promise.all(promises)
+              .then((results) => {
+                this.setState({ developers: results });
+                // console.log(this.state.filteredDevelopers)
+              });
+            }
+          }
+  );
+        }
   }
-
-  
-
 
   render (){
     // console.log(this.state.developers)
