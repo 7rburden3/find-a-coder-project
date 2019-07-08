@@ -2,13 +2,14 @@ package com.example.devz.controllers;
 
 
 import com.example.devz.models.Developer;
-import com.example.devz.projections.EmbedSkill;
+//import com.example.devz.projections.EmbedSkill;
 import com.example.devz.repositories.developerRepository.DeveloperRepository;
 import com.example.devz.repositories.skillRepository.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/developers")
@@ -32,6 +33,16 @@ public class DeveloperController {
 //        } else {
 //            return developerRepository.findAll();
 //        }
+//    }
+
+//    @GetMapping
+//    public List<Developer> getAllDevelopers() {
+//        return developerRepository.findAll();
+//    }
+//
+//    @GetMapping(value="/{id}")
+//    public Optional<Developer> findDeveloperById(@PathVariable Long id){
+//        return developerRepository.findById(id);
 //    }
 
 

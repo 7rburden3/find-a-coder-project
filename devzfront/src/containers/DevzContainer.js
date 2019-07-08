@@ -6,6 +6,7 @@ import DevzProfileBox from './DevProfileBox'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DevProfileBox from './DevProfileBox';
 import AddDevBox from './AddDevBox';
+import AddSkillBox from './AddSkillBox';
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -105,7 +106,8 @@ constructor(props){
               }} 
             />
           <Route exact path="/dev-profile" component={DevProfileBox}/>
-          <Route path="/add-developer" component={AddDevBox}/>
+          <Route path="/add-developer" component={AddDevBox} />
+          <Route path="/add-skill" component={AddSkillBox}/>
         </React.Fragment>
       </Router>
     )
