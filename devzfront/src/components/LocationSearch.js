@@ -14,8 +14,10 @@ class LocationSearch extends Component{
 
 
   handleChange(event) {
+    const value = event.target.value;
     event.preventDefault();
-    this.setState({ searchLocation: event.target.value });
+    this.setState({ searchLocation: value });
+    this.props.getLocation(value);
   }
 
   handleSubmit(event) {

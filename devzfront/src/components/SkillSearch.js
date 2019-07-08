@@ -34,7 +34,7 @@ class SkillSearch extends React.Component{
     }
     this.setState({ suggestions: suggestions, text: value })
 
-    this.props.filterSkill(value) 
+    this.props.getSkill(value) 
   } 
 
   suggestionSelected(value) {

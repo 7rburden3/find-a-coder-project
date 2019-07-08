@@ -15,6 +15,7 @@ constructor(props){
   }
   this.getSkill = this.getSkill.bind(this);
   this.filter = this.filter.bind(this);
+  this.getLocation = this.getLocation.bind(this);
 }
 
 
@@ -40,6 +41,14 @@ constructor(props){
     );
     // console.log(this.state.skillSearch);
     // this.filter();
+  }
+
+  getLocation (searchTerm) {
+    // this.setState(
+      // {locationSearch: searchTerm},this.filter
+    // );
+        console.log(searchTerm);
+
   }
 
   filter() {
@@ -70,7 +79,7 @@ constructor(props){
     return(
       <Fragment>
         <NavBar />
-        <HeaderBox filter={this.getSkill}/>
+        <HeaderBox getSkill={this.getSkill} getLocation={this.getLocation}/>
         <DevzSelectionBox  
           dataOnLoad = {this.state.developers} 
           filteredData = {this.state.filteredDevelopers} 
