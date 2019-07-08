@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from "react-router-dom";
 
 class LocationSearch extends Component{
 
@@ -27,6 +28,7 @@ class LocationSearch extends Component{
   render (){
 
     return(
+      
       <div className="mb-4 col-md-6">
         <form onSubmit={this.handleSubmit}>
           <input

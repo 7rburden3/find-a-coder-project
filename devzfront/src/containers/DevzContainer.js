@@ -34,9 +34,6 @@ constructor(props){
             this.setState({ developers: results});
           });
       });
-      this.filter()
-      console.log(this.skillSearch);
-      
     }
 
   getSkill (searchTerm) {
@@ -53,16 +50,17 @@ constructor(props){
   filter() {
     let skillSearch = this.state.skillSearch
     let locationSearch = this.state.locationSearch
-  if (skillSearch !== undefined && locationSearch !== undefined){
+    if ((skillSearch !== undefined && locationSearch !== undefined) && (skillSearch !== "" && locationSearch !== "")){
       fetch(`http://localhost:8080/developers/${skillSearch}/${locationSearch}`)
         .then(res => res.json())
         .then((data) => {
+          console.log(data)
           if(data.length > 0){
             this.setState({ developers: data});
           }
         });
   }
-  else if (skillSearch !== undefined){     
+  else if (skillSearch !== undefined && skillSearch !== ""){     
     let lowerSearch = this.state.skillSearch.toLowerCase();
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
@@ -72,7 +70,7 @@ constructor(props){
           }
         });
       }
-  else if (locationSearch !== undefined) {
+  else if (locationSearch !== undefined && locationSearch !== "") {
         let lowerSearch = this.state.locationSearch.toLowerCase();
         fetch(`http://localhost:8080/developers/${lowerSearch}`)
           .then(res => res.json())
@@ -85,7 +83,6 @@ constructor(props){
   }
 
   render (){
-    // console.log(this.state.developers)
     return(
       <Router>
         <React.Fragment>
