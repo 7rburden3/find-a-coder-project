@@ -60,32 +60,27 @@ constructor(props){
           if(data.length > 0){
             this.setState({ developers: data});
           }
-        }
-);
+        });
   }
-   else if (this.state.skillSearch !== undefined){     
+  else if (skillSearch !== undefined){     
     let lowerSearch = this.state.skillSearch.toLowerCase();
-      console.log(`http://localhost:8080/developers/skill/${lowerSearch}`)
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
         .then((data) => {
           if (data.length > 0) {
             this.setState({ developers: data });
           }
-        }
-);
+        });
       }
-      else if (this.state.locationSearch !== undefined) {
+  else if (locationSearch !== undefined) {
         let lowerSearch = this.state.locationSearch.toLowerCase();
-        console.log(`http://localhost:8080/developers/${lowerSearch}`)
         fetch(`http://localhost:8080/developers/${lowerSearch}`)
           .then(res => res.json())
           .then((data) => {
             if (data.length > 0) {
               this.setState({ developers: data });
             }
-          }
-  );
+          });
         }
   }
 
