@@ -2,7 +2,10 @@ import React, {Fragment} from 'react';
 import HeaderBox from './HeaderBox'
 import NavBar from '../components/NavBar'
 import DevzSelectionBox from './DevzSelectionBox'
+import DevzProfileBox from './DevProfileBox'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import DevProfileBox from './DevProfileBox';
+import AddDevBox from './AddDevBox';
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -80,14 +83,27 @@ constructor(props){
   render (){
     // console.log(this.state.developers)
     return(
-      <Fragment>
-        <NavBar />
-        <HeaderBox getSkill={this.getSkill} getLocation={this.getLocation}/>
-        <DevzSelectionBox  
-          dataOnLoad = {this.state.developers} 
-          filteredData = {this.state.filteredDevelopers} 
-        />
-      </Fragment>
+      <Router>
+        <React.Fragment>
+          <NavBar />
+          <Route 
+              exact path="/"
+              render={() => {
+                return (
+                  <React.Fragment>
+                    <HeaderBox getSkill={this.getSkill} getLocation={this.getLocation} />
+                    <DevzSelectionBox
+                      dataOnLoad={this.state.developers}
+                      filteredData={this.state.filteredDevelopers}
+                    />
+                  </React.Fragment>
+                )
+              }} 
+            />
+          <Route exact path="/dev-profile" component={DevProfileBox}/>
+          <Route path="/add-developer" component={AddDevBox}/>
+        </React.Fragment>
+      </Router>
     )
   }
 
