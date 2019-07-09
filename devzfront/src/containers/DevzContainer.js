@@ -99,9 +99,7 @@ constructor(props){
         }
   }
 
-  render() {
-    console.log(this.state.allProjects);
-    
+  render (){
     return(
       <Router>
         <React.Fragment>
