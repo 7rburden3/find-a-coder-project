@@ -1,18 +1,23 @@
 import React, { Component, Fragment } from 'react';
-import SkillSearch from "../components/SkillSearch"
-import LocationSearch from "../components/LocationSearch"
+import profileDetails from '../components/ProfileDetail'
+import ProfileDetail from '../components/ProfileDetail';
 
 class DevProfileBox extends Component {
     constructor(props) {
         super(props);
+    
 
     }
 
-    render() {
 
+
+
+
+    render() {
+        console.log(this.props.profileDetails)
         return (
             <Fragment>
-                <h1>Hellllo</h1>
+               <ProfileDetail profileDetails = {this.props.profileDetails}/>
             </Fragment>
         )
     }

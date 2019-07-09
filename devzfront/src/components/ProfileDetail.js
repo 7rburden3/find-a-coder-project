@@ -10,21 +10,22 @@ class ProfileDetail extends Component {
 
 
     render() {
-        console.log(this.props.avatar)
+        console.log(this.props.profileDetails)
+        let developer = this.props.profileDetails
 
 
         return (
             <Fragment>
 
-                <section classNameName="page-section" id="about">
-                    <header class="masthead  text-white text-center">
+                <section className="page-section" id="about">
+                    <header className="masthead  text-white text-center">
                         <div className="container d-flex align-items-center flex-column">
-                            <img className="masthead-avatar mb-5" src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" alt="" />
-                            <h1 className="masthead-heading text-uppercase mb-0"></h1>
+                            <img className="masthead-avatar mb-5" src={developer.picture} alt="" />
+                            <h1 className="masthead-heading text-uppercase mb-0">{developer.firstName + " " + developer.lastName}</h1>
                             <div className="divider-custom divider-light">
                                 <div className="divider-custom-line"></div>
                             </div>
-                            <p className="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+                            <p className="masthead-subheading font-weight-light mb-0">{developer.experience}</p>
                         </div>
                     </header>
 
