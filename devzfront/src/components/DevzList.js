@@ -15,7 +15,7 @@ class DevzList extends Component {
         const devNodes = this.props.data.map((developer, index) => {
             console.log(this.props)
             return (
-                <DevDetail avatar={developer.picture} id={developer.id} key={developer.id} name={developer.firstName + " " +developer.lastName} experience = {developer.experience} ></DevDetail>
+                <DevDetail avatar={developer.picture} id={developer.id} key={developer.id} name={developer.firstName + " " +developer.lastName} experience = {developer.experience} getDetails ={this.props.getDetails} allDetails={developer}></DevDetail>
             );
         });
 

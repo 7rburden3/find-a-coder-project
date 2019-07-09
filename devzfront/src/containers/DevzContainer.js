@@ -18,11 +18,13 @@ constructor(props){
     searchState: 0,
     skillSearch: undefined,
     locationSearch: undefined,
-    allSkills: []
+    allSkills: [],
+    profileDetails: []
   }
   this.getSkill = this.getSkill.bind(this);
   this.filter = this.filter.bind(this);
   this.getLocation = this.getLocation.bind(this);
+  this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
 }
 
 
@@ -96,8 +98,16 @@ constructor(props){
         }
   }
 
+  getDevProfileDetails(details){
+    this.setState({profileDetails: details}, console.log(this.state.profileDetails.id))
+  }
+
+
+
   render (){
-    //console.log(this.state.allSkills)
+
+    let pageid = this.state.profileDetails.id
+
     return(
       <Router>
         <React.Fragment>
@@ -111,12 +121,12 @@ constructor(props){
                     <DevzSelectionBox
                       dataOnLoad={this.state.developers}
                       filteredData={this.state.filteredDevelopers}
+                      getDetails ={this.getDevProfileDetails}
                     />
                   </React.Fragment>
                 )
               }}
             />
-          <Route exact path="/dev-profile" component={DevProfileBox}/>
           <Route path="/add-developer" component={AddDevBox} />
           <Route path="/skills"
           render={() => {
@@ -127,6 +137,14 @@ constructor(props){
               </React.Fragment>
             )
           }}/>
+          <Route path="/add-skill" component={AddSkillBox}/>
+          <Route path={`/dev-profile/${pageid}`}
+            render={() =>{
+              return(
+                <DevProfileBox profileDetails = {this.state.profileDetails}/>
+              )
+            }}
+          />
         </React.Fragment>
       </Router>
     )
