@@ -1,5 +1,8 @@
 import React, {Component, Fragment} from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import DevProfileBox from '../containers/DevProfileBox';
+
 
 class DevDetail extends Component{
   constructor(props) {
@@ -17,7 +20,7 @@ class DevDetail extends Component{
         <Fragment>
         
         <div className="col-xl-3 col-md-6 mb-4">
-          <Link to={`/dev-profile/${this.props.id}`} style={{ textDecoration: 'none' }}>
+          <Link to={`/dev-profile`} style={{ textDecoration: 'none' }}>
           <div className="card border-0 shadow">
             <img src={this.props.avatar} className="card-img-top" alt="..."/>
               <div className="card-body text-center">
@@ -27,6 +30,9 @@ class DevDetail extends Component{
 		  	  </div>
         </Link>
         </div>
+        <Router>
+        <Route  path={`/dev-profile`} component={DevProfileBox} />
+        </Router>
         </Fragment>
         )
         

@@ -102,9 +102,9 @@ constructor(props){
                 )
               }} 
             />
-          <Route exact path="/dev-profile" component={DevProfileBox}/>
           <Route path="/add-developer" component={AddDevBox} />
           <Route path="/add-skill" component={AddSkillBox}/>
+          <Route path={`/dev-profile`} component={DevProfileBox} />
         </React.Fragment>
       </Router>
     )

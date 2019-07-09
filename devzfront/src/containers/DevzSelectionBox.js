@@ -16,7 +16,7 @@ class DevzSelectionBox extends Component{
     
     return(
       <Fragment>      
-        <DevzList data = {this.props.dataOnLoad} filteredData = {this.props.filteredData}/>
+        <DevzList data = {this.props.dataOnLoad}/>
       </Fragment>
     )
   }
