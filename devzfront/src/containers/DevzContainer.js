@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DevProfileBox from './DevProfileBox';
 import AddDevBox from './AddDevBox';
 import AddSkillBox from './AddSkillBox';
+import AddProjectBox from './AddProjectBox';
+import ProjectList from '../components/ProjectList';
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -16,7 +18,8 @@ constructor(props){
     filteredDevelopers: [],
     searchState: 0,
     skillSearch: undefined,
-    locationSearch: undefined
+    locationSearch: undefined,
+    allProjects: []
   }
   this.getSkill = this.getSkill.bind(this);
   this.filter = this.filter.bind(this);
@@ -35,6 +38,19 @@ constructor(props){
             this.setState({ developers: results});
           });
       });
+        fetch("http://localhost:8080/projects")
+          .then(res => res.json())
+          .then((data) => {
+            const newData = data._embedded.projects
+            const promises = newData
+            Promise.all(promises)
+              .then((results) => {
+                this.setState({ allProjects: results });
+                // console.log(this.state.allProjects);
+                
+              });
+          });
+        
     }
 
   getSkill (searchTerm) {
@@ -83,7 +99,9 @@ constructor(props){
         }
   }
 
-  render (){
+  render() {
+    console.log(this.state.allProjects);
+    
     return(
       <Router>
         <React.Fragment>
@@ -99,12 +117,23 @@ constructor(props){
                       filteredData={this.state.filteredDevelopers}
                     />
                   </React.Fragment>
+                  
                 )
               }} 
             />
           <Route exact path="/dev-profile" component={DevProfileBox}/>
           <Route path="/add-developer" component={AddDevBox} />
-          <Route path="/add-skill" component={AddSkillBox}/>
+          <Route path="/add-skill" component={AddSkillBox} />
+          <Route path="/projects"
+          render ={() => {
+            return (
+              <React.Fragment>
+                <AddProjectBox />
+                
+                <ProjectList allProjects={this.state.allProjects} />
+              </React.Fragment>
+            )
+          }}/>
         </React.Fragment>
       </Router>
     )
