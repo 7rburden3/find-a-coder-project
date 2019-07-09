@@ -29,7 +29,7 @@ class ProfileDetail extends Component {
                 <section className="page-section" id="about">
                     <header className="masthead  text-white text-center">
                         <div className="container d-flex align-items-center flex-column">
-                            <img className="masthead-avatar mb-5" src={developer.picture} alt="" />
+                            <img className="masthead-avatar mb-5 shadow" src={developer.picture} alt="" />
                             <h1 className="masthead-heading text-uppercase mb-0">{developer.firstName + " " + developer.lastName}</h1>
                             <div className="divider-custom divider-light">
                                 <div className="divider-custom-line"></div>
