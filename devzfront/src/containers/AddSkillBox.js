@@ -19,9 +19,10 @@ class AddSkillBox extends Component {
                     'Content-Type': 'application/json'
                 }
             })
-            // .then(res => res.json())
-            // .then(returnData =>
-
+            .then(res => res.json())
+            .catch(err => {
+                console.error(err)
+            })
     }
 
     render() {
