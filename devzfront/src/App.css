@@ -19,7 +19,7 @@ body {
   line-height: 2.75rem;
 }
 
- 
+
 .suggestions {
   position: relative;
   left: 28%;
@@ -115,4 +115,8 @@ body {
 
 .form-group {
   margin-bottom: 25px;
+}
+
+ul {
+display: inline-block;
 }

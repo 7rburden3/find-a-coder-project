@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import NewSkillForm from '../components/NewSkillForm'
+import SkillList from '../components/SkillList';
 
 class AddSkillBox extends Component {
     constructor(props) {
@@ -19,8 +20,8 @@ class AddSkillBox extends Component {
                 }
             })
             // .then(res => res.json())
-            // .then(returnData => 
-        
+            // .then(returnData =>
+
     }
 
     render() {

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DevProfileBox from './DevProfileBox';
 import AddDevBox from './AddDevBox';
 import AddSkillBox from './AddSkillBox';
+import SkillList from '../components/SkillList';
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -16,7 +17,8 @@ constructor(props){
     filteredDevelopers: [],
     searchState: 0,
     skillSearch: undefined,
-    locationSearch: undefined
+    locationSearch: undefined,
+    allSkills: []
   }
   this.getSkill = this.getSkill.bind(this);
   this.filter = this.filter.bind(this);
@@ -35,10 +37,21 @@ constructor(props){
             this.setState({ developers: results});
           });
       });
+      fetch("http://localhost:8080/skills")
+      .then(res => res.json())
+      .then((skillData) => {
+        //console.log(skillData);
+        const newSkillData = skillData._embedded.skills
+        const promises = newSkillData
+        Promise.all(promises)
+        .then((results) => {
+          this.setState({allSkills: results});
+        })
+      })
     }
 
   getSkill (searchTerm) {
-    this.setState( 
+    this.setState(
      {skillSearch: searchTerm},this.filter );
   }
 
@@ -61,7 +74,7 @@ constructor(props){
           }
         });
   }
-  else if (skillSearch !== undefined && skillSearch !== ""){     
+  else if (skillSearch !== undefined && skillSearch !== ""){
     let lowerSearch = this.state.skillSearch.toLowerCase();
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
@@ -84,11 +97,12 @@ constructor(props){
   }
 
   render (){
+    //console.log(this.state.allSkills)
     return(
       <Router>
         <React.Fragment>
           <NavBar />
-          <Route 
+          <Route
               exact path="/"
               render={() => {
                 return (
@@ -100,11 +114,19 @@ constructor(props){
                     />
                   </React.Fragment>
                 )
-              }} 
+              }}
             />
           <Route exact path="/dev-profile" component={DevProfileBox}/>
           <Route path="/add-developer" component={AddDevBox} />
-          <Route path="/add-skill" component={AddSkillBox}/>
+          <Route path="/skills"
+          render={() => {
+            return (
+              <React.Fragment>
+                <AddSkillBox/>
+                <SkillList allSkills={this.state.allSkills}/>
+              </React.Fragment>
+            )
+          }}/>
         </React.Fragment>
       </Router>
     )
