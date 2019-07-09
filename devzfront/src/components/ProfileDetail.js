@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class ProfileDetail extends Component {
     constructor(props) {
@@ -45,6 +46,54 @@ class ProfileDetail extends Component {
                         </div>
                     </div>
                 </section>
+
+                <footer className="footer">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-md-4">
+                                <span className="copyright">Copyright &copy; yossaj 2019</span>
+                            </div>
+                            <div className="col-md-4">
+                                <ul className="list-inline social-buttons">
+                                    <li className="list-inline-item">
+                                        <a href="https://github.com/yossaj">
+                                            <i className="fab fa-github"></i>
+                                        </a>
+                                    </li>
+                                    <li className="list-inline-item">
+                                        <a href="https://medium.com/@kennethastewart">
+                                            <i className="fab fa-medium-m"></i>
+                                        </a>
+                                    </li>
+                                    <li className="list-inline-item">
+                                        <a href="https://www.linkedin.com/in/kenneth-stewart-b57933184/">
+                                            <FontAwesomeIcon
+                                                icon="linkedin"
+                                                color="#6DB65B"
+                                                size="sm"
+                                            />
+                                        </a>
+                                    </li>
+                                    <li className="list-inline-item">
+                                        <a href="https://www.goodreads.com/user/show/28391094-kenneth">
+                                            <i className="fab fa-goodreads-g"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="col-md-4">
+                                <ul className="list-inline quicklinks">
+                                    <li className="list-inline-item">
+                                        <a href="https://codeclan.com/">Update</a>
+                                    </li>
+                                    <li className="list-inline-item">
+                                        <a href="https://codeclan.com/">Delete</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </Fragment>
         )
 
