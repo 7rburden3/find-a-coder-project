@@ -13,9 +13,6 @@ class ProfileDetail extends Component {
     handleDeleteClick(event) {
         event.preventDefault()
         this.props.deleteDeveloper(this.props.profileDetails)
-        
-     
-       
     }
 
     render() {
