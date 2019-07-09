@@ -22,11 +22,10 @@ class ProfileDetail extends Component {
 
         return (
             <Fragment>
-
                 <section className="page-section" id="about">
                     <header className="masthead  text-white text-center">
                         <div className="container d-flex align-items-center flex-column">
-                            <img className="masthead-avatar mb-5" src={developer.picture} alt="" />
+                            <img className="masthead-avatar mb-5 shadow" src={developer.picture} alt="" />
                             <h1 className="masthead-heading text-uppercase mb-0">{developer.firstName + " " + developer.lastName}</h1>
                             <div className="divider-custom divider-light">
                                 <div className="divider-custom-line"></div>
@@ -56,7 +55,7 @@ class ProfileDetail extends Component {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-4">
-                                <span className="copyright">Copyright &copy; yossaj 2019</span>
+                                <span className="copyright">Copyright &copy; complexify co. 2019</span>
                             </div>
                             <div className="col-md-4">
                                 <ul className="list-inline social-buttons">
