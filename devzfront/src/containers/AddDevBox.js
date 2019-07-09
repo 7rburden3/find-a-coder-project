@@ -11,14 +11,17 @@ class AddDevBox extends Component {
         console.log(newDeveloper);
         fetch('http://localhost:8080/developers',
             {
-                method: 'POST', body: JSON.stringify(newDeveloper),
+                method: 'POST',
+                body: JSON.stringify(newDeveloper),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             })
-            // .then(res => res.json())
-            // .then(returnData => 
+            .then(res => res.json())
+            .catch(err => {
+                console.error(err)
+            })
         
     }
 
@@ -27,8 +30,8 @@ class AddDevBox extends Component {
         return (
             <Fragment>
                 <section class="page-section" id="add-dev-form">
-                 <NewDevForm handleDeveloperSubmit={this.handleDeveloperSubmit}/>
-                </section>
+                <NewDevForm handleDeveloperSubmit={this.handleDeveloperSubmit}/>
+                </section>           
             </Fragment>
         )
     }

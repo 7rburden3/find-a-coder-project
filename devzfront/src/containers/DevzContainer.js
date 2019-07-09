@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import DevProfileBox from './DevProfileBox';
 import AddDevBox from './AddDevBox';
 import AddSkillBox from './AddSkillBox';
+import AddProjectBox from './AddProjectBox';
+import ProjectList from '../components/ProjectList';
 import SkillList from '../components/SkillList';
 
 class DevzContainer extends React.Component{
@@ -18,6 +20,7 @@ constructor(props){
     searchState: 0,
     skillSearch: undefined,
     locationSearch: undefined,
+    allProjects: [],
     allSkills: [],
     profileDetails: []
   }
@@ -39,6 +42,19 @@ constructor(props){
             this.setState({ developers: results});
           });
       });
+        fetch("http://localhost:8080/projects")
+          .then(res => res.json())
+          .then((data) => {
+            const newData = data._embedded.projects
+            const promises = newData
+            Promise.all(promises)
+              .then((results) => {
+                this.setState({ allProjects: results });
+                // console.log(this.state.allProjects);
+                
+              });
+          });
+        
       fetch("http://localhost:8080/skills")
       .then(res => res.json())
       .then((skillData) => {
@@ -124,10 +140,22 @@ constructor(props){
                       getDetails ={this.getDevProfileDetails}
                     />
                   </React.Fragment>
+                  
                 )
               }}
             />
           <Route path="/add-developer" component={AddDevBox} />
+          <Route path="/add-skill" component={AddSkillBox} />
+          <Route path="/projects"
+          render ={() => {
+            return (
+              <React.Fragment>
+                <AddProjectBox />
+                
+                <ProjectList allProjects={this.state.allProjects} />
+              </React.Fragment>
+            )
+          }}/>
           <Route path="/skills"
           render={() => {
             return (
