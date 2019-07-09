@@ -8,7 +8,7 @@ class NewSkillForm extends Component {
             skill: ''
         }
         this.handleSkillChange = this.handleSkillChange.bind(this);
-        
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -18,9 +18,6 @@ class NewSkillForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        this.props.handleSkillSubmit({
-            skill: this.state.skill
-        })
     }
 
 
@@ -29,7 +26,7 @@ class NewSkillForm extends Component {
     render() {
         return (
             <form className="skill-form" onSubmit={this.handleSubmit}>
-                <label for="skill">Skill</label>
+                <label form="skill">Skill</label>
                 <input type="text"
                     id="skill"
                     placeholder="Skill"
@@ -44,5 +41,5 @@ class NewSkillForm extends Component {
 
 
 
-    
+
 export default NewSkillForm

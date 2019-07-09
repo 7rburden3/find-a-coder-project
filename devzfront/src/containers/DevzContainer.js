@@ -9,6 +9,7 @@ import AddDevBox from './AddDevBox';
 import AddSkillBox from './AddSkillBox';
 import AddProjectBox from './AddProjectBox';
 import ProjectList from '../components/ProjectList';
+import SkillList from '../components/SkillList';
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -19,11 +20,14 @@ constructor(props){
     searchState: 0,
     skillSearch: undefined,
     locationSearch: undefined,
-    allProjects: []
+    allProjects: [],
+    allSkills: [],
+    profileDetails: []
   }
   this.getSkill = this.getSkill.bind(this);
   this.filter = this.filter.bind(this);
   this.getLocation = this.getLocation.bind(this);
+  this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
 }
 
 
@@ -51,10 +55,21 @@ constructor(props){
               });
           });
         
+      fetch("http://localhost:8080/skills")
+      .then(res => res.json())
+      .then((skillData) => {
+        //console.log(skillData);
+        const newSkillData = skillData._embedded.skills
+        const promises = newSkillData
+        Promise.all(promises)
+        .then((results) => {
+          this.setState({allSkills: results});
+        })
+      })
     }
 
   getSkill (searchTerm) {
-    this.setState( 
+    this.setState(
      {skillSearch: searchTerm},this.filter );
   }
 
@@ -77,7 +92,7 @@ constructor(props){
           }
         });
   }
-  else if (skillSearch !== undefined && skillSearch !== ""){     
+  else if (skillSearch !== undefined && skillSearch !== ""){
     let lowerSearch = this.state.skillSearch.toLowerCase();
       fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
         .then(res => res.json())
@@ -99,12 +114,21 @@ constructor(props){
         }
   }
 
+  getDevProfileDetails(details){
+    this.setState({profileDetails: details}, console.log(this.state.profileDetails.id))
+  }
+
+
+
   render (){
+
+    let pageid = this.state.profileDetails.id
+
     return(
       <Router>
         <React.Fragment>
           <NavBar />
-          <Route 
+          <Route
               exact path="/"
               render={() => {
                 return (
@@ -113,13 +137,13 @@ constructor(props){
                     <DevzSelectionBox
                       dataOnLoad={this.state.developers}
                       filteredData={this.state.filteredDevelopers}
+                      getDetails ={this.getDevProfileDetails}
                     />
                   </React.Fragment>
                   
                 )
-              }} 
+              }}
             />
-          <Route exact path="/dev-profile" component={DevProfileBox}/>
           <Route path="/add-developer" component={AddDevBox} />
           <Route path="/add-skill" component={AddSkillBox} />
           <Route path="/projects"
@@ -132,6 +156,23 @@ constructor(props){
               </React.Fragment>
             )
           }}/>
+          <Route path="/skills"
+          render={() => {
+            return (
+              <React.Fragment>
+                <AddSkillBox/>
+                <SkillList allSkills={this.state.allSkills}/>
+              </React.Fragment>
+            )
+          }}/>
+          <Route path="/add-skill" component={AddSkillBox}/>
+          <Route path={`/dev-profile/${pageid}`}
+            render={() =>{
+              return(
+                <DevProfileBox profileDetails = {this.state.profileDetails}/>
+              )
+            }}
+          />
         </React.Fragment>
       </Router>
     )
