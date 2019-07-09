@@ -19,10 +19,10 @@ class NavBar extends Component{
                 <Link className="nav-link" to="/add-developer">Add</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/skills">Add Skill</Link>
+                <Link className="nav-link" to="/skills">Skills</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/add-project">Add Project</Link>
+                <Link className="nav-link" to="/projects">Projects</Link>
               </li>
 				</ul>
 			</div>
