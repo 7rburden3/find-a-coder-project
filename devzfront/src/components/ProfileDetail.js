@@ -6,9 +6,17 @@ class ProfileDetail extends Component {
     constructor(props) {
         super(props);
 
+
+        this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
-
+    handleDeleteClick(event) {
+        event.preventDefault()
+        this.props.deleteDeveloper(this.props.profileDetails)
+        
+     
+       
+    }
 
     render() {
         console.log(this.props.profileDetails)
@@ -84,10 +92,10 @@ class ProfileDetail extends Component {
                             <div className="col-md-4">
                                 <ul className="list-inline quicklinks">
                                     <li className="list-inline-item">
-                                        <a href="https://codeclan.com/">Update</a>
+                                        <a href="#">Update</a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://codeclan.com/">Delete</a>
+                                        <a href="#" onClick={this.handleDeleteClick}>Delete</a>
                                     </li>
                                 </ul>
                             </div>

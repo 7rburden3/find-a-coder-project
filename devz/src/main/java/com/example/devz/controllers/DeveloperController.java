@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/developers")
 public class DeveloperController {
@@ -44,6 +45,11 @@ public class DeveloperController {
 //    public Optional<Developer> findDeveloperById(@PathVariable Long id){
 //        return developerRepository.findById(id);
 //    }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteDeveloperById(@PathVariable Long id) {
+        developerRepository.deleteById(id);
+    }
 
 
     @GetMapping(value = "/{location}")
