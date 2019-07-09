@@ -36,6 +36,7 @@ class NewSkillForm extends Component {
                 <input type="submit" value="Submit" />
             </form>
         )
+        console.log('here new skill')
     }
 }
 
