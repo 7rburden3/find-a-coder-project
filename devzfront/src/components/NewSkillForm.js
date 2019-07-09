@@ -18,6 +18,9 @@ class NewSkillForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
+        this.props.handleSkillSubmit({
+            skill: this.state.skill
+        })
     }
 
 
