@@ -13,7 +13,7 @@ class UpdateDevBox extends Component {
         console.log('Shooes',id, developerChanges)
         fetch(`http://localhost:8080/developers/${id}`,
             {
-                method: 'UPDATE',
+                method: 'PUT',
                 body: JSON.stringify(developerChanges),
                 headers: {
                     'Accept': 'application/json',

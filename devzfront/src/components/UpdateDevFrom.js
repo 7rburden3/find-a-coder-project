@@ -5,14 +5,14 @@ class UpdateDevForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            firstName: '',
-            lastName: '',
-            location: '',
-            github: '',
-            email: '',
-            experience: '',
-            dailyRate: '',
-            picture: ''
+            firstName: props.profileDetails.firstName,
+            lastName: props.profileDetails.lastName,
+            location: props.profileDetails.location,
+            github: props.profileDetails.github,
+            email: props.profileDetails.email,
+            experience: props.profileDetails.experience,
+            dailyRate: props.dailyRate,
+            picture: props.picture
         }
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
