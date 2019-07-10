@@ -51,10 +51,10 @@ constructor(props){
               .then((results) => {
                 this.setState({ allProjects: results });
                 // console.log(this.state.allProjects);
-                
+
               });
           });
-        
+
       fetch("http://localhost:8080/skills")
       .then(res => res.json())
       .then((skillData) => {
@@ -83,7 +83,7 @@ constructor(props){
     let skillSearch = this.state.skillSearch
     let locationSearch = this.state.locationSearch
     if ((skillSearch !== undefined && locationSearch !== undefined) && (skillSearch !== "" && locationSearch !== "")){
-      fetch(`http://localhost:8080/developers/${skillSearch}/${locationSearch}`)
+      fetch(`http://localhost:8080/developers/search/${skillSearch}/${locationSearch}`)
         .then(res => res.json())
         .then((data) => {
           console.log(data)
@@ -94,7 +94,7 @@ constructor(props){
   }
   else if (skillSearch !== undefined && skillSearch !== ""){
     let lowerSearch = this.state.skillSearch.toLowerCase();
-      fetch(`http://localhost:8080/developers/skill/${lowerSearch}`)
+      fetch(`http://localhost:8080/developers/search/skill/${lowerSearch}`)
         .then(res => res.json())
         .then((data) => {
           if (data.length > 0) {
@@ -104,7 +104,7 @@ constructor(props){
       }
   else if (locationSearch !== undefined && locationSearch !== "") {
         let lowerSearch = this.state.locationSearch.toLowerCase();
-        fetch(`http://localhost:8080/developers/${lowerSearch}`)
+        fetch(`http://localhost:8080/developers/search/${lowerSearch}`)
           .then(res => res.json())
           .then((data) => {
             if (data.length > 0) {
@@ -140,7 +140,7 @@ constructor(props){
                       getDetails ={this.getDevProfileDetails}
                     />
                   </React.Fragment>
-                  
+
                 )
               }}
             />
@@ -151,7 +151,7 @@ constructor(props){
             return (
               <React.Fragment>
                 <AddProjectBox />
-                
+
                 <ProjectList allProjects={this.state.allProjects} />
               </React.Fragment>
             )
