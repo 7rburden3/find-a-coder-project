@@ -49,7 +49,6 @@ class DevProfileBox extends Component {
     }
 
     render() {
-<<<<<<< HEAD
       console.log(this.props.profileDetails);
       return (
         <Fragment>
@@ -57,14 +56,6 @@ class DevProfileBox extends Component {
         <DeveloperSkillList developerSkills = {this.state.developerSkills}/>
         </Fragment>
       )
-=======
-        console.log("WOooo",this.props)
-        return (
-            <Fragment>
-               <ProfileDetail profileDetails = {this.props.profileDetails} deleteDeveloper = {this.sendDeveloperDelete} getDetails = {this.props.getDetails}/>
-            </Fragment>
-        )
->>>>>>> develop
     }
 
   }

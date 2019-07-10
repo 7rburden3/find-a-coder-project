@@ -28,19 +28,14 @@ class DevzContainer extends React.Component{
 
     }
     this.getSkill = this.getSkill.bind(this);
+    this.deleteSkill = this.deleteSkill.bind(this);
     this.filter = this.filter.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
   }
-<<<<<<< HEAD
-=======
-  this.getSkill = this.getSkill.bind(this);
-  this.deleteSkill = this.deleteSkill.bind(this);
-  this.filter = this.filter.bind(this);
-  this.getLocation = this.getLocation.bind(this);
-  this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
-}
->>>>>>> develop
+
+
+
 
 
   componentDidMount() {
@@ -128,11 +123,6 @@ class DevzContainer extends React.Component{
         }
       }
 
-<<<<<<< HEAD
-      getDevProfileDetails(details){
-        this.setState({profileDetails: details}, console.log(this.state.profileDetails.id))
-      }
-=======
   getDevProfileDetails(details){
     this.setState({profileDetails: details}, console.log("yup", this.state.profileDetails.id))
   }
@@ -154,13 +144,12 @@ class DevzContainer extends React.Component{
               return {allSkills: filteredAllSkills};
             })
           }
-        }) 
+        })
 
         .catch(err => {
             console.error(err)
         });
   }
->>>>>>> develop
 
 
 
@@ -193,8 +182,8 @@ class DevzContainer extends React.Component{
           <Route path={`/update-developer/${pageid}`}
             render={() => {
               return (
-                <UpdateDevBox 
-                profileDetails={this.state.profileDetails} 
+                <UpdateDevBox
+                profileDetails={this.state.profileDetails}
                 />
               )
             }}
@@ -213,36 +202,21 @@ class DevzContainer extends React.Component{
           render={() => {
             return (
               <React.Fragment>
-<<<<<<< HEAD
-              <AddSkillBox/>
-              <SkillList allSkills={this.state.allSkills}/>
-=======
                 <AddSkillBox/>
                 <SkillList allSkills={this.state.allSkills} onSkillDelete={this.deleteSkill} />
->>>>>>> develop
               </React.Fragment>
             )
           }}/>
           <Route path="/add-skill" component={AddSkillBox}/>
           <Route path={`/dev-profile/${pageid}`}
-<<<<<<< HEAD
-          render={() =>{
-            return(
-              <React.Fragment>
-              <DevProfileBox profileDetails = {this.state.profileDetails}/>
-              </React.Fragment>
-            )
-          }}
-=======
             render={() =>{
               return(
-                <DevProfileBox 
+                <DevProfileBox
                   profileDetails = {this.state.profileDetails}
                   getDetails={this.getDevProfileDetails}
                 />
               )
             }}
->>>>>>> develop
           />
           </React.Fragment>
           </Router>
