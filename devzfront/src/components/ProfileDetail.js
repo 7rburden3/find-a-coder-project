@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DeveloperSkillList from '../components/DeveloperSkillList';
 
+
 class ProfileDetail extends Component {
     constructor(props) {
         super(props);
-       
-
-
+        this.state = {
+            developerSkills: []
+        }
+        
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
         this.handleUpdateClick = this.handleUpdateClick.bind(this)
+        this.findDeveloperSkills = this.findDeveloperSkills.bind(this)
     }
 
     handleUpdateClick() {
@@ -25,6 +28,25 @@ class ProfileDetail extends Component {
 
     }
 
+
+    componentDidMount() {
+        this.findDeveloperSkills(this.props.profileDetails.id)
+    }
+
+    findDeveloperSkills(id) {
+        fetch(`http://localhost:8080/developers/${this.props.profileDetails.id}/skills`)
+            .then(res => res.json())
+            .then((data) => {
+                const newData = data._embedded.skills
+                const promises = newData
+                Promise.all(promises)
+                    .then((results) => {
+                        this.setState({ developerSkills: results });
+                        console.log(this.state.developerSkills);
+                    });
+            });
+    }
+
   
 
     render() {
@@ -34,7 +56,7 @@ class ProfileDetail extends Component {
 
         return (
             <Fragment>
-
+                <DeveloperSkillList developerSkills={this.state.developerSkills} />
                 <section className="page-section" id="about">
                     <header className="masthead  text-white text-center">
                         <div className="container d-flex align-items-center flex-column">
