@@ -56,7 +56,6 @@ class ProfileDetail extends Component {
 
         return (
             <Fragment>
-                <DeveloperSkillList developerSkills={this.state.developerSkills} />
                 <section className="page-section" id="about">
                     <header className="masthead  text-white text-center">
                         <div className="container d-flex align-items-center flex-column">
@@ -75,11 +74,7 @@ class ProfileDetail extends Component {
                                 <h1 className="">Skills</h1>
                                 <hr />
                                 <ul className="list-group list-group-flush skills">
-                                    <li><h3>SQL</h3></li>
-                                    <li><h3>Ruby</h3></li>
-                                    <li><h3>Javascript</h3></li>
-                                    <li><h3>Java</h3></li>
-                                    <li><h3>Python</h3></li>
+                                    <DeveloperSkillList developerSkills={this.state.developerSkills} />
                                 </ul>
                                 
                             </div>

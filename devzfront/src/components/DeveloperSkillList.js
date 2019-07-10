@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 const DeveloperSkillList = (props) => {
   console.log(props);
@@ -13,9 +13,10 @@ const DeveloperSkillList = (props) => {
   })
 
   return (
-    <ul className="developerskills-ul">
+    <Fragment>
     {skills}
-    </ul>
+    </Fragment>
+    
 
   )
 }
