@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import DeveloperSkillList from '../components/DeveloperSkillList';
 
 class ProfileDetail extends Component {
     constructor(props) {
@@ -10,16 +11,17 @@ class ProfileDetail extends Component {
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
+
     handleDeleteClick(event) {
         event.preventDefault()
         this.props.deleteDeveloper(this.props.profileDetails)
-  
+
     }
 
     render() {
         console.log(this.props.profileDetails)
         let developer = this.props.profileDetails
-
+        console.log(this.props);
 
         return (
             <Fragment>
@@ -48,6 +50,7 @@ class ProfileDetail extends Component {
                                     <li><h3>Java</h3></li>
                                     <li><h3>Python</h3></li>
                                 </ul>
+                                
                             </div>
                         </div>
                     </div>
