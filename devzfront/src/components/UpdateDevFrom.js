@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddSkillList from './AddSkillList';
+import AddProjectList from './AddProjectList';
 
 class UpdateDevForm extends Component {
 
@@ -180,6 +181,7 @@ class UpdateDevForm extends Component {
                 </div>
                 <div className="skills">
                     <AddSkillList allSkills={this.state.skills} onSkillAdd={this.props.onSkillAdd} id={this.props.profileDetails.id}/>
+                    <AddProjectList allProjects={this.state.projects} onProjectAdd={this.props.onProjectAdd} id={this.props.profileDetails.id} />
                 </div>
             </div>
             

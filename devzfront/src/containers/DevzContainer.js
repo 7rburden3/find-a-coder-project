@@ -57,7 +57,7 @@ class DevzContainer extends React.Component{
       Promise.all(promises)
       .then((results) => {
         this.setState({ allProjects: results });
-        // console.log(this.state.allProjects);
+        console.log("WHY ARE THERE NO IDS?",this.state.allProjects);
 
       });
     });
@@ -65,7 +65,7 @@ class DevzContainer extends React.Component{
     fetch("http://localhost:8080/skills")
     .then(res => res.json())
     .then((skillData) => {
-      //console.log(skillData);
+      console.log(skillData);
       const newSkillData = skillData._embedded.skills
       const promises = newSkillData
       Promise.all(promises)

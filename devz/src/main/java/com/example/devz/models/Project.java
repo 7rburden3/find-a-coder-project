@@ -72,4 +72,8 @@ public class Project {
     public void addDeveloper(Developer developer) {
         this.developers.add(developer);
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

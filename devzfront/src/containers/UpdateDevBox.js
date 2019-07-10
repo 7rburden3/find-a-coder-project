@@ -7,6 +7,7 @@ class UpdateDevBox extends Component {
         console.log("AAAAAAA",props);
         
         this.addSkill = this.addSkill.bind(this)
+        this.addProject = this.addProject.bind(this)
         this.handleDeveloperUpdate = this.handleDeveloperUpdate.bind(this);
     }
 
@@ -40,6 +41,19 @@ class UpdateDevBox extends Component {
             });
       }
 
+      addProject(projectId, id) {
+        fetch(`http://localhost:8080/developers/${id}/projects`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/uri-list'
+                },
+                body: `http://localhost:8080/projects/${projectId}`
+            })
+            .catch(err => {
+                console.error(err)
+            });
+      }
 
     render() {
 
@@ -51,7 +65,8 @@ class UpdateDevBox extends Component {
                     profileDetails = {this.props.profileDetails}
                     allSkills = {this.props.allSkills}
                     allProjects={this.props.allProjects}
-                    onSkillAdd={this.addSkill}
+                        onSkillAdd={this.addSkill}
+                        onProjectAdd={this.addProject}
                     />
                 </section>
             </Fragment>
