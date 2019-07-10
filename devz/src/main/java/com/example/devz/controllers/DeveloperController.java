@@ -45,11 +45,16 @@ public class DeveloperController {
 //    public Optional<Developer> findDeveloperById(@PathVariable Long id){
 //        return developerRepository.findDeveloperById(id);
 //    }
+
+//    @PutMapping(value = "/id")
+//    public void updateDeveloperById(@PathVariable Long id) {
+//        developerRepository.findById(id).save();
+//    }
 //
-    @DeleteMapping(value = "/{id}")
-    public void deleteDeveloperById(@PathVariable Long id) {
-        developerRepository.deleteById(id);
-    }
+//    @DeleteMapping(value = "/{id}")
+//    public void deleteDeveloperById(@PathVariable Long id) {
+//        developerRepository.deleteById(id);
+//    }
 
     @GetMapping(value = "/search/{location}")
     public List<Developer> findDeveloperByLocation(@PathVariable String location){

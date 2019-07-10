@@ -4,10 +4,10 @@ import NewDevForm from '../components/NewDevForm'
 class AddDevBox extends Component {
     constructor(props) {
         super(props);
-        this.handleDeveloperSubmit = this.handleDeveloperSubmit.bind(this);
+        this.handleDeveloperUpdate = this.handleDeveloperUpdate.bind(this);
     }
 
-    handleDeveloperSubmit(newDeveloper) {
+    handleDeveloperUpdate(newDeveloper) {
         console.log(newDeveloper);
         fetch('http://localhost:8080/developers',
             {

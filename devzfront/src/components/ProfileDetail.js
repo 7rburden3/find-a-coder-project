@@ -6,9 +6,16 @@ import DeveloperSkillList from '../components/DeveloperSkillList';
 class ProfileDetail extends Component {
     constructor(props) {
         super(props);
+       
 
 
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
+        this.handleUpdateClick = this.handleUpdateClick.bind(this)
+    }
+
+    handleUpdateClick() {
+        console.log("Hello", this.props) 
+        this.props.getDetails(this.props.profileDetails)
     }
 
 
@@ -17,6 +24,8 @@ class ProfileDetail extends Component {
         this.props.deleteDeveloper(this.props.profileDetails)
 
     }
+
+  
 
     render() {
         console.log(this.props.profileDetails)
@@ -60,7 +69,7 @@ class ProfileDetail extends Component {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-4">
-                                <span className="copyright">Copyright &copy; yossaj 2019</span>
+                                <span className="copyright">Copyright &copy; Complify co. 2019</span>
                             </div>
                             <div className="col-md-4">
                                 <ul className="list-inline social-buttons">
@@ -93,7 +102,9 @@ class ProfileDetail extends Component {
                             <div className="col-md-4">
                                 <ul className="list-inline quicklinks">
                                     <li className="list-inline-item">
-                                        <a href="#">Update</a>
+                                        <Link to= {`/update-developer/${developer.id}`} onClick={this.handleUpdateClick}>
+                                        Update
+                                        </Link>
                                     </li>
                                     <li className="list-inline-item">
                                         <a href="#" onClick={this.handleDeleteClick}>Delete</a>
