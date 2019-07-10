@@ -11,8 +11,8 @@ class UpdateDevForm extends Component {
             github: props.profileDetails.github,
             email: props.profileDetails.email,
             experience: props.profileDetails.experience,
-            dailyRate: props.dailyRate,
-            picture: props.picture
+            dailyRate: props.profileDetails.dailyRate,
+            picture: props.profileDetails.picture
         }
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
