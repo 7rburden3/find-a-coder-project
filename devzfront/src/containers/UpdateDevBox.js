@@ -9,9 +9,8 @@ class UpdateDevBox extends Component {
         this.handleDeveloperUpdate = this.handleDeveloperUpdate.bind(this);
     }
 
-    handleDeveloperUpdate(developerChanges) {
-        console.log(developerChanges);
-        let id = developerChanges.id
+    handleDeveloperUpdate(id, developerChanges) {
+        console.log('Shooes',id, developerChanges)
         fetch(`http://localhost:8080/developers/${id}`,
             {
                 method: 'UPDATE',
@@ -21,9 +20,8 @@ class UpdateDevBox extends Component {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => res.json())
-            .catch(err => {
-                console.error(err)
+            .then(() => {
+                window.location = '/'
             })
     }
 
@@ -32,7 +30,10 @@ class UpdateDevBox extends Component {
         return (
             <Fragment>
                 <section class="page-section" id="add-dev-form">
-                   <h1>Hello</h1>
+                    <UpdateDevForm 
+                    handleDeveloperUpdate={this.handleDeveloperUpdate}
+                    profileDetails = {this.props.profileDetails} 
+                    />
                 </section>
             </Fragment>
         )

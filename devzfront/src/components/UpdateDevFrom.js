@@ -59,7 +59,10 @@ class UpdateDevForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        this.props.handleDeveloperSubmit({
+        const id = this.props.profileDetails.id
+        this.props.handleDeveloperUpdate(
+            id, 
+            {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             location: this.state.location,
@@ -73,6 +76,9 @@ class UpdateDevForm extends Component {
 
 
     render() {
+        const developer = this.props.profileDetails
+
+
         return (
             <div className="container">
                 <div className="row">
@@ -87,7 +93,7 @@ class UpdateDevForm extends Component {
                                             type="text"
                                             className="form-control"
                                             id="first-name"
-                                            placeholder="First Name"
+                                            placeholder={developer.firstName}
                                             value={this.state.firstName}
                                             onChange={this.handleFirstNameChange}
                                         />
@@ -96,7 +102,7 @@ class UpdateDevForm extends Component {
                                         <input type="text"
                                             className="form-control"
                                             id="last-name"
-                                            placeholder="Last Name"
+                                            placeholder= {developer.lastName}
                                             label="Second Name"
                                             value={this.state.lastName}
                                             onChange={this.handleLastNameChange}
@@ -106,7 +112,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="text"
                                             id="location"
-                                            placeholder="Location"
+                                            placeholder={developer.location}
                                             label="Location"
                                             value={this.state.location}
                                             onChange={this.handleLocationChange}
@@ -116,7 +122,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="text"
                                             id="github"
-                                            placeholder="github"
+                                            placeholder={developer.github}
                                             label="github"
                                             value={this.state.github}
                                             onChange={this.handleGithubChange}
@@ -126,7 +132,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="text"
                                             id="email"
-                                            placeholder="email"
+                                            placeholder={developer.email}
                                             label="email"
                                             value={this.state.email}
                                             onChange={this.handleEmailChange}
@@ -136,7 +142,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="text"
                                             id="experience"
-                                            placeholder="Experience"
+                                            placeholder={developer.experience}
                                             label="Experience"
                                             value={this.state.experience}
                                             onChange={this.handleExperienceChange}
@@ -146,7 +152,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="number"
                                             id="daily-rate"
-                                            placeholder="Daily Rate"
+                                            placeholder={developer.dailyRate}
                                             label="Daily Rate"
                                             value={this.state.dailyRate}
                                             onChange={this.handleDailyRateChange}
@@ -156,7 +162,7 @@ class UpdateDevForm extends Component {
                                             className="form-control"
                                             type="text"
                                             id="picture"
-                                            placeholder="Picture"
+                                            placeholder={developer.picture}
                                             label="Picture"
                                             value={this.state.picture}
                                             onChange={this.handlePictureChange}
