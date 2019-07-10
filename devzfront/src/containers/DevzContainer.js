@@ -57,7 +57,6 @@ class DevzContainer extends React.Component{
       Promise.all(promises)
       .then((results) => {
         this.setState({ allProjects: results });
-        // console.log(this.state.allProjects);
 
       });
     });
@@ -65,7 +64,6 @@ class DevzContainer extends React.Component{
     fetch("http://localhost:8080/skills")
     .then(res => res.json())
     .then((skillData) => {
-      //console.log(skillData);
       const newSkillData = skillData._embedded.skills
       const promises = newSkillData
       Promise.all(promises)
@@ -95,7 +93,6 @@ class DevzContainer extends React.Component{
           fetch(`http://localhost:8080/developers/search/${skillSearch}/${locationSearch}`)
           .then(res => res.json())
           .then((data) => {
-            console.log(data)
             if(data.length > 0){
               this.setState({ developers: data});
             }
@@ -124,7 +121,7 @@ class DevzContainer extends React.Component{
       }
 
   getDevProfileDetails(details){
-    this.setState({profileDetails: details}, console.log("yup", this.state.profileDetails.id))
+    this.setState({profileDetails: details})
   }
 
   deleteSkill(skillId) {

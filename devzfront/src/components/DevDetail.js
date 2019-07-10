@@ -14,7 +14,6 @@ handleClick(){
 }
 
   render (){
-    console.log(this.props.avatar)
    
 
     return(

@@ -20,7 +20,6 @@ class ProfileDetail extends Component {
     }
 
     handleUpdateClick() {
-        console.log("Hello", this.props)
         this.props.getDetails(this.props.profileDetails)
     }
 
@@ -46,7 +45,6 @@ class ProfileDetail extends Component {
                 Promise.all(promises)
                     .then((results) => {
                         this.setState({ developerSkills: results });
-                        console.log(this.state.developerSkills);
                     });
             });
     }
@@ -60,7 +58,6 @@ class ProfileDetail extends Component {
                 Promise.all(promises)
                     .then((results) => {
                         this.setState({ developerProjects: results });
-                        console.log(this.state.developerProjects);
                     });
             });
     }
@@ -68,9 +65,7 @@ class ProfileDetail extends Component {
 
 
     render() {
-        console.log(this.props.profileDetails)
         let developer = this.props.profileDetails
-        console.log(this.props);
 
         return (
             <Fragment>

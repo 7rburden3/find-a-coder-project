@@ -12,7 +12,6 @@ class DevProfileBox extends Component {
   }
 
   sendDeveloperDelete(developer) {
-    console.log(developer.id);
     fetch(`http://localhost:8080/developers/${developer.id}`,
       {
         method: 'DELETE',

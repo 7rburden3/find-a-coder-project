@@ -1,7 +1,6 @@
 import React from 'react'
 
 const DeveloperProjectList = (props) => {
-  console.log(props);
   const projects = props.developerProjects.map((projects, index) => {
     return (
       <div className = "developer-project" key={index}>
