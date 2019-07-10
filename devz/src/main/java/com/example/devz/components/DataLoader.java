@@ -30,6 +30,11 @@ public class DataLoader implements ApplicationRunner {
         Developer ralph = new Developer("Ralph", "Burden", "Dalkeith", "7rburden3", "ralph@codeclan.org", "Senior Developer", 800, "https://source.unsplash.com/sNut2MqSmds/500x350");
         Developer kenny = new Developer("Kenneth", "Stewart", "Edinburgh", "yossha", "kenny@omgtheykilledhim.com", "Coding Guru", 1000, "https://source.unsplash.com/TMgQMXoglsM/500x350");
         Developer malky = new Developer("Malky", "Burns", "Edinburgh", "malkyx", "malky@groovy.com", "Graduate", 250, "https://source.unsplash.com/9UVmlIb0wJU/500x350");
+        Developer tam = new Developer("Tam", "O'Donnell", "Muscleburgh", "ThomasHAOD", "tam@hoad.com", "Zen Coder", 3000, "https://images.unsplash.com/photo-1515518354921-44069ca6532e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=350&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500");
+        Developer swatton = new Developer("James", "Swatton", "Downsouth", "JamesSwatton", "swat@hoddee.com", "Master", 2000, "https://images.unsplash.com/photo-1544703251-1bfaf9e57d3c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=350&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500");
+        Developer baz = new Developer("Alex", "Bazlinton", "Cornwall", "abazlinton", "abazlinton@thebaz.com", "Super Sayan", 10000, "https://images.unsplash.com/photo-1470253267745-0160f3678150?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=350&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500");
+        Developer mike = new Developer("Michael", "Forbes", "Dalkeith", "mikeyfbz", "abazlinton", "Zen Coder", 4000, "https://images.unsplash.com/photo-1553976468-dcd9082bcd28?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=350&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=500");
+
 
         Skill java = new Skill("Java");
         Skill ruby = new Skill("Ruby");
@@ -48,6 +53,7 @@ public class DataLoader implements ApplicationRunner {
         Skill python = new Skill("Python");
         Skill swift = new Skill("Swift");
         Skill rails = new Skill("Rails");
+        Skill cult = new Skill("Leading Cults");
 
         Project devz = new Project("Devz");
         Project stockTracker = new Project("Stock Tracker");
@@ -70,6 +76,7 @@ public class DataLoader implements ApplicationRunner {
         skillRepository.save(python);
         skillRepository.save(swift);
         skillRepository.save(rails);
+        skillRepository.save(cult);
 
         projectRepository.save(devz);
         projectRepository.save(stockTracker);
@@ -116,6 +123,20 @@ public class DataLoader implements ApplicationRunner {
         malky.addSkill(cSharp);
         malky.addProject(devz);
         developerRepository.save(malky);
+
+        baz.addSkill(cult);
+        baz.addSkill(sql);
+        baz.addSkill(ruby);
+        baz.addSkill(java);
+        baz.addSkill(javascript);
+        baz.addSkill(cPlusPlus);
+        baz.addSkill(cSharp);
+        baz.addProject(devz);
+        developerRepository.save(baz);
+
+        developerRepository.save(tam);
+        developerRepository.save(swatton);
+        developerRepository.save(mike);
 
     }
 
