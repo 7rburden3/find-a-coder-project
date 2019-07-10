@@ -116,20 +116,24 @@ class ProfileDetail extends Component {
                                 <ul className="list-inline social-buttons">
                                     <li className="list-inline-item">
                                         <a href="https://github.com/yossaj">
-                                            <i className="fab fa-github"></i>
+                                            <FontAwesomeIcon
+                                                icon={['fab', 'github']}
+                                                color="#2c3e50"
+                                                size="lg"
+                                            />
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://medium.com/@kennethastewart">
+                                        <a href="http://www.github.com/{developer.github}">
                                             <i className="fab fa-medium-m"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="https://www.linkedin.com/in/kenneth-stewart-b57933184/">
+                                        <a href="mailto: {developer.email}">
                                             <FontAwesomeIcon
-                                                icon="linkedin"
-                                                color="#6DB65B"
-                                                size="sm"
+                                                icon="envelope"
+                                                color="#2c3e50"
+                                                size="lg"
                                             />
                                         </a>
                                     </li>

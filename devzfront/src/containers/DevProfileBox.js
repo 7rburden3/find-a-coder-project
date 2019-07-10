@@ -28,7 +28,6 @@ class DevProfileBox extends Component {
 
 
     render() {
-      console.log(this.props.profileDetails);
       return (
         <Fragment>
         <ProfileDetail profileDetails = {this.props.profileDetails} deleteDeveloper = {this.sendDeveloperDelete} getDetails ={this.props.getDetails}/>
