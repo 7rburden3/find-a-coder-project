@@ -121,3 +121,19 @@ display: inline-block;
 }
 
 }
+
+.skills{
+  background-color: #6A8CAD;
+  color: white;
+  padding: 20px;
+  border-radius: 5%;
+  margin-right: 2%;
+  text-align: left;
+}
+
+.skills li{
+  margin-left: 10%;
+  letter-spacing: 0.1rem;
+  margin-top: 2%;
+
+}

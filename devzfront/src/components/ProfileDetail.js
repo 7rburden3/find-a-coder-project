@@ -70,17 +70,18 @@ class ProfileDetail extends Component {
 
                     <div className="jumbotron">
                         <div className="row">
-                            <div className="col-md-3 text-center .ml-1">
-                                <h1 className="">Skills</h1>
+                            <div className="col-md-3 .ml-1 skills text-center">
+                                <h4 className="">{developer.firstName}'s Areas of Expertise</h4>
                                 <hr />
                                 <ul className="list-group list-group-flush skills">
                                     <DeveloperSkillList developerSkills={this.state.developerSkills} />
                                 </ul>
                                 
                             </div>
-                            <div className= "col-md-6" >
+                            <div className= "col-md-8" >
                                 <h3>Who is {developer.firstName}?</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
+                                <p>Vitae auctor eu augue ut lectus. Augue lacus viverra vitae congue. Sit amet risus nullam eget. Id eu nisl nunc mi. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Ante in nibh mauris cursus mattis molestie a. Mus mauris vitae ultricies leo integer malesuada nunc vel. Magna sit amet purus gravida quis blandit. Volutpat est velit egestas dui id ornare. Nibh ipsum consequat nisl vel. Et netus et malesuada fames. Orci dapibus ultrices in iaculis nunc sed augue lacus. Arcu non odio euismod lacinia at quis risus sed vulputate. Consectetur a erat nam at lectus urna duis. Sed sed risus pretium quam. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut tortor pretium viverra suspendisse potenti nullam ac. Justo donec enim diam vulputate ut. Blandit libero volutpat sed cras ornare arcu.</p>
                             </div>
                         </div>
                     </div>

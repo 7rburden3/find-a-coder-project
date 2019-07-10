@@ -32,7 +32,7 @@ class DevProfileBox extends Component {
       console.log(this.props.profileDetails);
       return (
         <Fragment>
-        <ProfileDetail profileDetails = {this.props.profileDetails} deleteDeveloper = {this.sendDeveloperDelete}/>
+        <ProfileDetail profileDetails = {this.props.profileDetails} deleteDeveloper = {this.sendDeveloperDelete} getDetails ={this.props.getDetails}/>
         
         </Fragment>
       )

@@ -6,7 +6,9 @@ const DeveloperSkillList = (props) => {
     return (
       <div className = "developer-skill" key={index}>
               <li className="developerskill-li">
-                {skills.skill}
+                <h4>
+                - {skills.skill}
+                </h4> 
               </li>
             </div>
     )
