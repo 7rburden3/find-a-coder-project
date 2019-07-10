@@ -183,7 +183,9 @@ class DevzContainer extends React.Component{
             render={() => {
               return (
                 <UpdateDevBox
-                profileDetails={this.state.profileDetails}
+                  profileDetails={this.state.profileDetails}
+                  allSkills={this.state.allSkills}
+                  allProjects={this.state.allProjects}
                 />
               )
             }}
@@ -203,7 +205,10 @@ class DevzContainer extends React.Component{
             return (
               <React.Fragment>
                 <AddSkillBox/>
-                <SkillList allSkills={this.state.allSkills} onSkillDelete={this.deleteSkill} />
+                <SkillList
+                  allSkills={this.state.allSkills}
+                  onSkillDelete={this.deleteSkill}
+                />
               </React.Fragment>
             )
           }}/>
