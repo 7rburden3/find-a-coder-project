@@ -2,22 +2,25 @@ import React, { Component, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DeveloperSkillList from '../components/DeveloperSkillList';
+import DeveloperProjectList from '../components/DeveloperProjectList';
 
 
 class ProfileDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            developerSkills: []
+            developerSkills: [],
+            developerProjects: []
         }
-        
+
         this.handleDeleteClick = this.handleDeleteClick.bind(this)
         this.handleUpdateClick = this.handleUpdateClick.bind(this)
         this.findDeveloperSkills = this.findDeveloperSkills.bind(this)
+        this.findDeveloperProjects = this.findDeveloperProjects.bind(this)
     }
 
     handleUpdateClick() {
-        console.log("Hello", this.props) 
+        console.log("Hello", this.props)
         this.props.getDetails(this.props.profileDetails)
     }
 
@@ -31,6 +34,7 @@ class ProfileDetail extends Component {
 
     componentDidMount() {
         this.findDeveloperSkills(this.props.profileDetails.id)
+        this.findDeveloperProjects(this.props.profileDetails.id)
     }
 
     findDeveloperSkills(id) {
@@ -47,7 +51,21 @@ class ProfileDetail extends Component {
             });
     }
 
-  
+    findDeveloperProjects(id) {
+        fetch(`http://localhost:8080/developers/${this.props.profileDetails.id}/projects`)
+            .then(res => res.json())
+            .then((data) => {
+                const newData = data._embedded.projects
+                const promises = newData
+                Promise.all(promises)
+                    .then((results) => {
+                        this.setState({ developerProjects: results });
+                        console.log(this.state.developerProjects);
+                    });
+            });
+    }
+
+
 
     render() {
         console.log(this.props.profileDetails)
@@ -76,7 +94,13 @@ class ProfileDetail extends Component {
                                 <ul className="list-group list-group-flush skills">
                                     <DeveloperSkillList developerSkills={this.state.developerSkills} />
                                 </ul>
-                                
+
+                                <h1 className="">Projects</h1>
+                                <hr />
+                                <ul className="list-group list-group-flush projects">
+                                    <DeveloperProjectList developerProjects={this.state.developerProjects} />
+                                </ul>
+
                             </div>
                             <div className= "col-md-8" >
                                 <h3>Who is {developer.firstName}?</h3>

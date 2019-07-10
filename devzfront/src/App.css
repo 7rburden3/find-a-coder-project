@@ -95,6 +95,10 @@ body {
   list-style: none;
 }
 
+.projects{
+  list-style: none;
+}
+
 /* forms */
 
 .page-section {
@@ -117,10 +121,11 @@ display: inline-block;
   .masthead .masthead-avatar {
   width: 18rem;
   border-radius: 10%;
-  
+
 }
 
 }
+<<<<<<< HEAD
 
 .skills{
   background-color: #6A8CAD;
@@ -137,3 +142,5 @@ display: inline-block;
   margin-top: 2%;
 
 }
+=======
+>>>>>>> 2007ec92396ed12a1662faac7d956d83f7bb2ed9
