@@ -10,6 +10,7 @@ import AddSkillBox from './AddSkillBox';
 import AddProjectBox from './AddProjectBox';
 import ProjectList from '../components/ProjectList';
 import SkillList from '../components/SkillList';
+import UpdateDevBox from './UpdateDevBox'
 
 class DevzContainer extends React.Component{
 constructor(props){
@@ -115,7 +116,7 @@ constructor(props){
   }
 
   getDevProfileDetails(details){
-    this.setState({profileDetails: details}, console.log(this.state.profileDetails.id))
+    this.setState({profileDetails: details}, console.log("yup", this.state.profileDetails.id))
   }
 
 
@@ -146,6 +147,15 @@ constructor(props){
             />
           <Route path="/add-developer" component={AddDevBox} />
           <Route path="/add-skill" component={AddSkillBox} />
+          <Route path={`/update-developer/${pageid}`}
+            render={() => {
+              return (
+                <UpdateDevBox 
+                profileDetails={this.state.profileDetails} 
+                />
+              )
+            }}
+          />
           <Route path="/projects"
           render ={() => {
             return (
@@ -169,7 +179,10 @@ constructor(props){
           <Route path={`/dev-profile/${pageid}`}
             render={() =>{
               return(
-                <DevProfileBox profileDetails = {this.state.profileDetails}/>
+                <DevProfileBox 
+                  profileDetails = {this.state.profileDetails}
+                  getDetails={this.getDevProfileDetails}
+                />
               )
             }}
           />
