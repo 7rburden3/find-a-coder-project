@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/developers")
 public class DeveloperController {
@@ -40,23 +41,27 @@ public class DeveloperController {
 //        return developerRepository.findAll();
 //    }
 //
-//    @GetMapping(value="/{id}")
+//    @GetMapping(value="/id/{id}")
 //    public Optional<Developer> findDeveloperById(@PathVariable Long id){
-//        return developerRepository.findById(id);
+//        return developerRepository.findDeveloperById(id);
 //    }
+//
+    @DeleteMapping(value = "/{id}")
+    public void deleteDeveloperById(@PathVariable Long id) {
+        developerRepository.deleteById(id);
+    }
 
-
-    @GetMapping(value = "/{location}")
+    @GetMapping(value = "/search/{location}")
     public List<Developer> findDeveloperByLocation(@PathVariable String location){
     return developerRepository.findDevelopersByLocationIgnoreCase(location);
     }
 
-    @GetMapping(value= "/skill/{skill}")
+    @GetMapping(value= "/search/skill/{skill}")
     public List<Developer> findDeveloperBySkill(@PathVariable String skill){
         return developerRepository.findDevelopersBySkill(skill);
     }
 
-    @GetMapping(value = "/{skill}/{location}")
+    @GetMapping(value = "/search/{skill}/{location}")
     public List<Developer> findDevelopersBySkillByLocation(@PathVariable String skill, @PathVariable String location){      return developerRepository.findDevelopersBySkillByLocation(skill, location);
     }
 

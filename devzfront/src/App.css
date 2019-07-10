@@ -4,7 +4,6 @@
 
 body {
   background: #EDE7D4;
-  /* background: linear-gradient(to right, rgb(255, 251, 213), #EDE7D4); */
 }
 
 .masthead {
@@ -44,17 +43,11 @@ body {
 
 
 
-@media only screen and (max-width: 1025px) {
-  .suggestions{
-    left: 14%;
-  }
-}
-
 
 /* profile page */
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  padding-top: calc(1rem + 74px);
   padding-bottom: 6rem;
   background-color: #6A8CAD
 
@@ -105,7 +98,6 @@ body {
 /* forms */
 
 .page-section {
-  padding: 100px 0;
 }
 
 
@@ -119,4 +111,13 @@ body {
 
 ul {
 display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .masthead .masthead-avatar {
+  width: 18rem;
+  border-radius: 10%;
+  
+}
+
 }
