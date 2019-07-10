@@ -2,7 +2,7 @@ import React from 'react';
 
 const SkillList = (props) => {
   
-// SKILLS LIST WITH DUMMY DELETE BUTTON
+// SKILL LIST WITH DUMMY DELETE BUTTON
   // const skills = props.allSkills.map((skill,index) => {
   //   return (
   //     <div className = "skill-list" key={index}>
@@ -14,6 +14,7 @@ const SkillList = (props) => {
   //   )
   // })
 
+  
 // DevzContainer passes deleteSkill as the property onSkillDelete to/on SkillList
   // new function to handle button click to delete skill
   function handleSkillDelete(event) {
@@ -21,10 +22,8 @@ const SkillList = (props) => {
     props.onSkillDelete(skillId);
   };
 
-  // // SKILLS LIST WITH NEW DELETE BUTTON
+  // // SKILL LIST WITH NEW DELETE BUTTON
 //   // <button className="delete-button" onClick={handleSkillDelete(index)}>Delete</button>
-
-
   const skills = props.allSkills.map((skill,index) => {
     return (
       <div className = "skill-list" key={index}>

@@ -1,6 +1,7 @@
 package com.example.devz.configurations;
 
 import com.example.devz.models.Developer;
+import com.example.devz.models.Project;
 import com.example.devz.models.Skill;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -16,7 +17,7 @@ public class SpringDataRestCORSConfig implements RepositoryRestConfigurer {
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.exposeIdsFor(Developer.class, Skill.class);
+        config.exposeIdsFor(Developer.class, Skill.class, Project.class);
         config.getCorsRegistry()
                 .addMapping(CORS_BASE_PATTERN)
                 .allowedOrigins(ALLOWED_ORIGINS)
