@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import NewSkillForm from '../components/NewSkillForm'
-import SkillList from '../components/SkillList';
 
 class AddSkillBox extends Component {
     constructor(props) {
