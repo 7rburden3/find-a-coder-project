@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import AddSkillList from './AddSkillList';
+import AddProjectList from './AddProjectList';
 
 class UpdateDevForm extends Component {
 
     constructor(props) {
-        super(props)
+        super(props)        
         this.state = {
             firstName: props.profileDetails.firstName,
             lastName: props.profileDetails.lastName,
@@ -12,7 +14,9 @@ class UpdateDevForm extends Component {
             email: props.profileDetails.email,
             experience: props.profileDetails.experience,
             dailyRate: props.profileDetails.dailyRate,
-            picture: props.profileDetails.picture
+            picture: props.profileDetails.picture,
+            skills: props.allSkills,
+            projects: props.allProjects
         }
         this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
         this.handleLastNameChange = this.handleLastNameChange.bind(this);
@@ -77,7 +81,8 @@ class UpdateDevForm extends Component {
 
     render() {
         const developer = this.props.profileDetails
-
+        // console.log(this.state.skills);
+        
 
         return (
             <div className="container">
@@ -174,7 +179,12 @@ class UpdateDevForm extends Component {
                         </form>
                     </div>
                 </div>
+                <div className="skills">
+                    <AddSkillList allSkills={this.state.skills} onSkillAdd={this.props.onSkillAdd} id={this.props.profileDetails.id}/>
+                    <AddProjectList allProjects={this.state.projects} onProjectAdd={this.props.onProjectAdd} id={this.props.profileDetails.id} />
+                </div>
             </div>
+            
         )
     }
 

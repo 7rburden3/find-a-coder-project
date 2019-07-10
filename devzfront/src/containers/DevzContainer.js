@@ -52,12 +52,15 @@ class DevzContainer extends React.Component{
     });
     fetch("http://localhost:8080/projects")
     .then(res => res.json())
-    .then((data) => {
+      .then((data) => {
+      console.log(data);
+      
       const newData = data._embedded.projects
       const promises = newData
       Promise.all(promises)
       .then((results) => {
         this.setState({ allProjects: results });
+        console.log("WHY ARE THERE NO IDS?",this.state.allProjects);
 
       });
     });
@@ -65,6 +68,7 @@ class DevzContainer extends React.Component{
     fetch("http://localhost:8080/skills")
     .then(res => res.json())
     .then((skillData) => {
+      console.log(skillData);
       const newSkillData = skillData._embedded.skills
       const promises = newSkillData
       Promise.all(promises)
@@ -204,7 +208,9 @@ class DevzContainer extends React.Component{
             render={() => {
               return (
                 <UpdateDevBox
-                profileDetails={this.state.profileDetails}
+                  profileDetails={this.state.profileDetails}
+                  allSkills={this.state.allSkills}
+                  allProjects={this.state.allProjects}
                 />
               )
             }}
@@ -224,7 +230,10 @@ class DevzContainer extends React.Component{
             return (
               <React.Fragment>
                 <AddSkillBox/>
-                <SkillList allSkills={this.state.allSkills} onSkillDelete={this.deleteSkill} />
+                <SkillList
+                  allSkills={this.state.allSkills}
+                  onSkillDelete={this.deleteSkill}
+                />
               </React.Fragment>
             )
           }}/>
