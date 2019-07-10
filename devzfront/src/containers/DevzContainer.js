@@ -25,6 +25,7 @@ constructor(props){
     profileDetails: []
   }
   this.getSkill = this.getSkill.bind(this);
+  this.deleteSkill = this.deleteSkill.bind(this);
   this.filter = this.filter.bind(this);
   this.getLocation = this.getLocation.bind(this);
   this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
@@ -118,6 +119,30 @@ constructor(props){
     this.setState({profileDetails: details}, console.log(this.state.profileDetails.id))
   }
 
+  deleteSkill(skillId) {
+    fetch(`http://localhost:8080/skills/${skillId}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(res => {
+          if (res.ok) {
+            this.setState(prevState => {
+               const filteredAllSkills = prevState.allSkills.filter(skill => {
+                return skillId !== skill.id
+              });
+              return {allSkills: filteredAllSkills};
+            })
+          }
+        }) 
+
+        .catch(err => {
+            console.error(err)
+        });
+  }
+
 
 
   render (){
@@ -161,7 +186,7 @@ constructor(props){
             return (
               <React.Fragment>
                 <AddSkillBox/>
-                <SkillList allSkills={this.state.allSkills}/>
+                <SkillList allSkills={this.state.allSkills} onSkillDelete={this.deleteSkill} />
               </React.Fragment>
             )
           }}/>
