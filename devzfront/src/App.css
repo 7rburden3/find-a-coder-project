@@ -95,6 +95,10 @@ body {
   list-style: none;
 }
 
+.projects{
+  list-style: none;
+}
+
 /* forms */
 
 .page-section {
@@ -117,7 +121,7 @@ display: inline-block;
   .masthead .masthead-avatar {
   width: 18rem;
   border-radius: 10%;
-  
+
 }
 
 }
