@@ -12,7 +12,6 @@ class DevProfileBox extends Component {
   }
 
   sendDeveloperDelete(developer) {
-    console.log(developer.id);
     fetch(`http://localhost:8080/developers/${developer.id}`,
       {
         method: 'DELETE',
@@ -29,7 +28,6 @@ class DevProfileBox extends Component {
 
 
     render() {
-      console.log(this.props.profileDetails);
       return (
         <Fragment>
         <ProfileDetail profileDetails = {this.props.profileDetails} deleteDeveloper = {this.sendDeveloperDelete} getDetails ={this.props.getDetails}/>

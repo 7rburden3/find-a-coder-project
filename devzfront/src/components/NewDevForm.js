@@ -79,9 +79,9 @@ class NewDevForm extends Component {
                     <div className="col-md-12">
                         <h1>Add a new developer</h1>
                     <form className="developer-form" onSubmit={this.handleSubmit}>
-                        <div class="row">
-                            <div class="col-md">
-                            <div class="form-group">
+                        <div className="row">
+                            <div className="col-md">
+                            <div className="form-group">
                                 <label for="first-name">First Name</label>
                                     <input 
                                         type="text"
@@ -161,7 +161,7 @@ class NewDevForm extends Component {
                                         value={this.state.picture}
                                         onChange={this.handlePictureChange}
                                     />    
-                                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">submit</button>
+                                    <button id="sendMessageButton" className="btn btn-primary btn-xl text-uppercase" type="submit">submit</button>
                         </div>
                         </div>
                     </div>

@@ -12,7 +12,6 @@ class UpdateDevBox extends Component {
     }
 
     handleDeveloperUpdate(id, developerChanges) {
-        console.log('Shooes',id, developerChanges)
         fetch(`http://localhost:8080/developers/${id}`,
             {
                 method: 'PUT',

@@ -29,6 +29,7 @@ class DevzContainer extends React.Component{
     }
     this.getSkill = this.getSkill.bind(this);
     this.deleteSkill = this.deleteSkill.bind(this);
+    this.deleteProject = this.deleteProject.bind(this);
     this.filter = this.filter.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.getDevProfileDetails = this.getDevProfileDetails.bind(this);
@@ -57,7 +58,10 @@ class DevzContainer extends React.Component{
       Promise.all(promises)
       .then((results) => {
         this.setState({ allProjects: results });
+<<<<<<< HEAD
         console.log("WHY ARE THERE NO IDS?",this.state.allProjects);
+=======
+>>>>>>> develop
 
       });
     });
@@ -65,7 +69,10 @@ class DevzContainer extends React.Component{
     fetch("http://localhost:8080/skills")
     .then(res => res.json())
     .then((skillData) => {
+<<<<<<< HEAD
       console.log(skillData);
+=======
+>>>>>>> develop
       const newSkillData = skillData._embedded.skills
       const promises = newSkillData
       Promise.all(promises)
@@ -95,7 +102,6 @@ class DevzContainer extends React.Component{
           fetch(`http://localhost:8080/developers/search/${skillSearch}/${locationSearch}`)
           .then(res => res.json())
           .then((data) => {
-            console.log(data)
             if(data.length > 0){
               this.setState({ developers: data});
             }
@@ -124,7 +130,7 @@ class DevzContainer extends React.Component{
       }
 
   getDevProfileDetails(details){
-    this.setState({profileDetails: details}, console.log("yup", this.state.profileDetails.id))
+    this.setState({profileDetails: details})
   }
 
   deleteSkill(skillId) {
@@ -151,6 +157,29 @@ class DevzContainer extends React.Component{
         });
   }
 
+  deleteProject(projectId) {
+    fetch(`http://localhost:8080/projects/${projectId}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(res => {
+          if (res.ok) {
+            this.setState(prevState => {
+               const filteredAllProjects = prevState.allProjects.filter(project => {
+                return projectId !== project.id
+              });
+              return {allProjects: filteredAllProjects};
+            })
+          }
+        })
+
+        .catch(err => {
+            console.error(err)
+        });
+  }
 
 
       render (){
@@ -196,7 +225,7 @@ class DevzContainer extends React.Component{
               <React.Fragment>
               <AddProjectBox />
 
-              <ProjectList allProjects={this.state.allProjects} />
+              <ProjectList allProjects={this.state.allProjects} onProjectDelete={this.deleteProject} />
               </React.Fragment>
             )
           }}/>
