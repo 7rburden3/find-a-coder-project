@@ -40,9 +40,11 @@ const ProjectList = (props) => {
         return (
             <div className="container">
                 <div className="row">
-                    <ul className="projects-list">
-                        {projects}
-                    </ul>
+                    <div className="col-md-6  mb-6 skill-list">
+                        <ul className="projects-list">
+                            {projects}
+                        </ul>
+                     </div>
                 </div>
             </div>
         )

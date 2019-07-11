@@ -28,8 +28,13 @@ class AddSkillBox extends Component {
 
         return (
             <Fragment>
-                <h1>SKILLZ! Add skills</h1>
-                <NewSkillForm handleSkillSubmit={this.handleSkillSubmit}/>
+                <div className = "container">
+                    
+                <h1>Add skills</h1>
+                    <div className="row">
+                     <NewSkillForm handleSkillSubmit={this.handleSkillSubmit}/>
+                    </div>
+                </div>
             </Fragment>
         )
     }
