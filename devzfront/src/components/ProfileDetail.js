@@ -96,12 +96,6 @@ class ProfileDetail extends Component {
                                     <DeveloperSkillList developerSkills={this.state.developerSkills} />
                                 </ul>
 
-                                <h1 className="">Projects</h1>
-                                <hr />
-                                <ul className="list-group list-group-flush projects">
-                                    <DeveloperProjectList developerProjects={this.state.developerProjects} />
-                                </ul>
-
                             </div>
                             <div className= "col-md-6" >
                                 <h3>Who is {developer.firstName}?</h3>
@@ -110,6 +104,16 @@ class ProfileDetail extends Component {
                         </div>
                     </div>
                 </section>
+
+                <section className="page-section">
+                    <h1 className="">Projects</h1>
+                    <hr />
+                   <div className="row">
+                        <DeveloperProjectList developerProjects={this.state.developerProjects} />
+                </div>
+                </section>
+
+
 
                 <footer className="footer">
                     <div className="container">
