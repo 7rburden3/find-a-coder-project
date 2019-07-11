@@ -113,9 +113,9 @@ body {
   margin-bottom: 25px;
 }
 
-ul {
+/* ul {
 display: inline-block;
-}
+} */
 
 @media (max-width: 768px) {
   .masthead .masthead-avatar {

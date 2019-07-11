@@ -17,9 +17,11 @@ class ProfileDetail extends Component {
         this.handleUpdateClick = this.handleUpdateClick.bind(this)
         this.findDeveloperSkills = this.findDeveloperSkills.bind(this)
         this.findDeveloperProjects = this.findDeveloperProjects.bind(this)
+        
     }
 
     handleUpdateClick() {
+        console.log("Hello", this.props)
         this.props.getDetails(this.props.profileDetails)
     }
 
@@ -45,6 +47,7 @@ class ProfileDetail extends Component {
                 Promise.all(promises)
                     .then((results) => {
                         this.setState({ developerSkills: results });
+                        console.log(this.state.developerSkills);
                     });
             });
     }
@@ -58,6 +61,7 @@ class ProfileDetail extends Component {
                 Promise.all(promises)
                     .then((results) => {
                         this.setState({ developerProjects: results });
+                        console.log(this.state.developerProjects);
                     });
             });
     }
@@ -65,7 +69,9 @@ class ProfileDetail extends Component {
 
 
     render() {
+        console.log(this.props.profileDetails)
         let developer = this.props.profileDetails
+        console.log(this.props);
 
         return (
             <Fragment>
@@ -83,27 +89,25 @@ class ProfileDetail extends Component {
 
                     <div className="jumbotron">
                         <div className="row">
-                            <div className="col-md-3 .ml-1 skills text-center">
-                                <h4 className="">{developer.firstName}'s Areas of Expertise</h4>
+                            <div className="col-md-3 text-center .ml-1">
+                                <h1 className="">Skills</h1>
                                 <hr />
                                 <ul className="list-group list-group-flush skills">
                                     <DeveloperSkillList developerSkills={this.state.developerSkills} />
                                 </ul>
+
+                                <h1 className="">Projects</h1>
+                                <hr />
+                                <ul className="list-group list-group-flush projects">
+                                    <DeveloperProjectList developerProjects={this.state.developerProjects} />
+                                </ul>
+
                             </div>
-                            <div className= "col-md-8" >
+                            <div className= "col-md-6" >
                                 <h3>Who is {developer.firstName}?</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>  
-                                <p>Vitae auctor eu augue ut lectus. Augue lacus viverra vitae congue. Sit amet risus nullam eget. Id eu nisl nunc mi. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Ante in nibh mauris cursus mattis molestie a. Mus mauris vitae ultricies leo integer malesuada nunc vel. Magna sit amet purus gravida quis blandit. Volutpat est velit egestas dui id ornare. Nibh ipsum consequat nisl vel. Et netus et malesuada fames. Orci dapibus ultrices in iaculis nunc sed augue lacus. Arcu non odio euismod lacinia at quis risus sed vulputate. Consectetur a erat nam at lectus urna duis. Sed sed risus pretium quam. A lacus vestibulum sed arcu non odio euismod lacinia at. Ut tortor pretium viverra suspendisse potenti nullam ac. Justo donec enim diam vulputate ut. Blandit libero volutpat sed cras ornare arcu.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-
-                <section className="page-section">
-                    <h2 class="portfolio page-section-heading text-center text-uppercase mb-2">Portfolio Projects</h2>
-                    <div className="row">
-                        <DeveloperProjectList developerProjects={this.state.developerProjects} />
                     </div>
                 </section>
 
@@ -117,24 +121,20 @@ class ProfileDetail extends Component {
                                 <ul className="list-inline social-buttons">
                                     <li className="list-inline-item">
                                         <a href="https://github.com/yossaj">
-                                            <FontAwesomeIcon
-                                                icon={['fab', 'github']}
-                                                color="#2c3e50"
-                                                size="lg"
-                                            />
+                                            <i className="fab fa-github"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="http://www.github.com/{developer.github}">
+                                        <a href="https://medium.com/@kennethastewart">
                                             <i className="fab fa-medium-m"></i>
                                         </a>
                                     </li>
                                     <li className="list-inline-item">
-                                        <a href="mailto: {developer.email}">
+                                        <a href="https://www.linkedin.com/in/kenneth-stewart-b57933184/">
                                             <FontAwesomeIcon
-                                                icon="envelope"
-                                                color="#2c3e50"
-                                                size="lg"
+                                                icon="linkedin"
+                                                color="#6DB65B"
+                                                size="sm"
                                             />
                                         </a>
                                     </li>
