@@ -26,23 +26,19 @@ const SkillList = (props) => {
 //   // <button className="delete-button" onClick={handleSkillDelete(index)}>Delete</button>
   const skills = props.allSkills.map((skill,index) => {
     return (
-      <div className = "skill-list " key={index}>
+      <div className = "skill-list" key={index}>
         <li className="skill-li">
           {skill.skill}
+          <button className="delete-button" value={skill.id} onClick={handleSkillDelete}>Delete</button>
         </li>
-        <button className="delete-button btn-sm btn-outline-danger" value={skill.id} onClick={handleSkillDelete}>Delete</button>
       </div>
     )
   })
 
   return (
-    <div className="row">
-      <div className="col-md-6  mb-6 skill-list">
-      <ul className="skills-ul">
-        {skills}
-      </ul>
-      </div>
-    </div>
+    <ul className="skills-ul">
+      {skills}
+    </ul>
 
   )
 };

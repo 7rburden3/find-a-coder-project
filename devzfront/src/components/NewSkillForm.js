@@ -28,22 +28,16 @@ class NewSkillForm extends Component {
 
     render() {
         return (
-            <div className ="row">
-                <div className= "col-md-6">
-                    <form className="form-inline " onSubmit={this.handleSubmit}>
-                        <label form="skill">Skill</label>
-                        <input 
-                            type="text"
-                            className="form-control"
-                            id="skill"
-                            placeholder="Skill"
-                            value={this.state.skill}
-                            onChange={this.handleSkillChange}
-                        />
-                        <input type="submit" value="Submit" />
+            <form className="skill-form" onSubmit={this.handleSubmit}>
+                <label form="skill">Skill</label>
+                <input type="text"
+                    id="skill"
+                    placeholder="Skill"
+                    value={this.state.skill}
+                    onChange={this.handleSkillChange}
+                />
+                <input type="submit" value="Submit" />
             </form>
-            </div>
-            </div>
         )
     }
 }
